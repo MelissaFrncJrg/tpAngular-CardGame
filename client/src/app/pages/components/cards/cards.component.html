@@ -1,0 +1,9 @@
+<h2>Cards list</h2>
+
+<div *ngIf="errorMsg" class="text-danger">{{ errorMsg }}</div>
+
+<ul *ngIf="!errorMsg">
+    <li class="card" *ngFor="let card of cards">
+        <a [routerLink]="['/cards', card.id]">{{ card.name }}</a>
+    </li>
+</ul>

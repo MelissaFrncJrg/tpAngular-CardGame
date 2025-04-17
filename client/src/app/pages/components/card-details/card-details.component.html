@@ -1,0 +1,36 @@
+<div *ngIf="card; else errorTpl">
+    <h2>Card details</h2>
+    <button class="btn" (click)="backToCardsList()">Back to cards list</button>
+
+    <div class="card">
+        <p class="card-title">{{ card.name }}</p>
+        <p class="card-value">{{ card.value }}</p>
+    </div>
+
+    <form class="edit-form" *ngIf="editMode" (ngSubmit)="onSave()">
+        <span class="input-span">
+            <label for="name" class="label">Name</label>
+            <input type="text" id="name" [(ngModel)]="editedCard.name" name="name" />
+        </span>
+
+        <span class="input-span">
+            <label for="value" class="label">Value</label>
+            <input type="number" id="value" [(ngModel)]="editedCard.value" name="value" />
+        </span>
+
+        <div class="action-btns">
+            <button class="submit-btn" type="submit">Save</button>
+            <button type="button" class="warning-btn" (click)="editMode = false">Cancel</button>
+        </div>
+    </form>
+
+    <div>
+        <button class="warning-btn" (click)="onEdit()" *ngIf="!editMode">Update</button>
+        <button class="danger-btn" (click)="onDelete()">Delete</button>
+    </div>
+
+</div>
+
+<ng-template #errorTpl>
+    <p class="text-danger">{{ errorMsg }}</p>
+</ng-template>

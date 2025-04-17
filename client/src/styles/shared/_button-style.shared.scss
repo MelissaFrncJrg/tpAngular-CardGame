@@ -1,0 +1,54 @@
+.submit-btn,
+.warning-btn,
+.danger-btn {
+  padding: 0.8rem 1.5rem;
+  border-radius: 2rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  &:hover {
+    transition: all 300ms ease-in-out;
+  }
+}
+
+.btn {
+  border-style: none;
+  background: transparent;
+  font-size: 1rem;
+  padding: 0.4rem;
+  &:hover {
+    cursor: pointer;
+    color: #4158d0;
+  }
+}
+
+.submit-btn {
+  background-color: #4158d0;
+  color: var(--bg-light);
+
+  &:hover {
+    background-color: #c850c0;
+  }
+}
+
+.warning-btn {
+  background-color: #ffcc70;
+  color: #4158d0;
+  &:hover {
+    background-color: #4158d0;
+    color: #000;
+  }
+}
+
+.danger-btn {
+  background-color: #dc3545;
+  color: #fff;
+  margin: 1.7rem;
+  &:hover {
+    background-color: #fff;
+    color: #dc3545;
+    border: 1px solid #dc3545;
+  }
+}

@@ -1,0 +1,96 @@
+a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-family: sans-serif;
+  font-size: 2rem;
+  text-align: center;
+  padding: 1rem;
+  width: 190px;
+  height: 254px;
+  border-radius: 1rem;
+  background-color: #4158d0;
+  background-image: linear-gradient(
+    43deg,
+    #4158d0 0%,
+    #c850c0 46%,
+    #ffcc70 100%
+  );
+  box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset,
+    rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset,
+    rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px,
+    rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px,
+    rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+}
+
+:host {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  flex-direction: column;
+}
+
+.card {
+  margin-bottom: 1rem;
+}
+
+.card .card-title {
+  margin: 0.8rem 0;
+  font-size: 2rem !important;
+}
+
+.edit-form {
+  --bg-light: #f7f7f7;
+  --bg-dark: #2d2d2d;
+  --first-color: #c850c0;
+  --hightlight-color: #ffcc70;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  max-width: 300px;
+  margin-top: 1rem;
+}
+
+.input-span {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+input[type="text"],
+input[type="number"] {
+  border-radius: 0.5rem;
+  padding: 1rem 0.75rem;
+  width: 100%;
+  border: none;
+  outline: 2px solid #4158d0;
+  color: var(--bg-dark);
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus {
+  outline: 2px solid var(--hightlight-color);
+}
+
+.label {
+  align-self: flex-start;
+  color: var(--first-color);
+  font-weight: 600;
+}
+
+.action-btns {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
