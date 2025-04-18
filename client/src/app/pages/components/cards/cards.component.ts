@@ -2,21 +2,25 @@ import { CommonModule, NgFor, NgIf } from '@angular/common';
 import { Component, HostListener, OnInit } from '@angular/core';
 import { CardModel, CardsService } from '../../../services/cards.services';
 import { RouterModule } from '@angular/router';
-import { max } from 'rxjs';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-cards',
-  imports: [NgIf, NgFor, CommonModule, RouterModule],
+  imports: [NgIf, NgFor, FormsModule, CommonModule, RouterModule],
   templateUrl: './cards.component.html',
   styleUrls: [
     '../../../../styles/shared/_card-style.shared.scss',
     './cards.component.scss',
+    '../../../../styles/shared/_button-style.shared.scss',
   ],
   standalone: true,
 })
 export class CardsComponent implements OnInit {
   cards: CardModel[] = [];
   errorMsg?: string;
+
+  isCreating: boolean = false;
+  editedCard: Partial<CardModel> = { name: '', value: 0 };
 
   currentIndex: number = 0;
   visibleSlides: number = 4;
@@ -36,9 +40,34 @@ export class CardsComponent implements OnInit {
       },
 
       error: (err) => {
-        this.errorMsg = 'Error loading cards: ';
+        (this.errorMsg = 'Error loading cards: '), err;
       },
     });
+  }
+
+  startCreateCard(): void {
+    this.editedCard = { name: '', value: 0 };
+    this.isCreating = true;
+  }
+
+  onSave(): void {
+    if (!this.editedCard.name || this.editedCard.value == null) return;
+
+    this.cardsService.createCard(this.editedCard).subscribe({
+      next: (createdCard) => {
+        this.cards.push(createdCard);
+        this.currentIndex = this.cards.length - 1;
+        this.isCreating = false;
+      },
+      error: (err) => {
+        this.errorMsg = 'Error creating card.';
+        console.error('Error creating card:', err);
+      },
+    });
+  }
+
+  cancelCreate(): void {
+    this.isCreating = false;
   }
 
   @HostListener('window:resize')

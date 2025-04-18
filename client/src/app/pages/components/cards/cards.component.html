@@ -1,9 +1,32 @@
 <!-- Template HTML du carousel -->
 <h2>Cards list</h2>
 
-<div *ngIf="errorMsg" class="text-danger">{{ errorMsg }}</div>
+<div class="justify">
+    <button class="submit-btn" (click)="startCreateCard()">New card</button>
+</div>
 
-<div *ngIf="!errorMsg" class="carousel-container">
+<form class="edit-form" *ngIf="isCreating" (ngSubmit)="onSave()">
+    <span class="input-span">
+        <label for="name" class="label">Name</label>
+        <input type="text" id="name" [(ngModel)]="editedCard.name" name="name" required />
+    </span>
+
+    <span class="input-span">
+        <label for="value" class="label">Value</label>
+        <input type="number" id="value" [(ngModel)]="editedCard.value" name="value" required />
+    </span>
+
+    <div *ngIf="errorMsg" class="text-danger">{{ errorMsg }}</div>
+
+    <div class="action-btns">
+        <button class="submit-btn" type="submit">Save</button>
+        <button type="button" class="warning-btn" (click)="cancelCreate()">Cancel</button>
+    </div>
+</form>
+
+
+
+<div *ngIf="!errorMsg&& !isCreating" class="carousel-container">
     <div class="carousel-button-container">
         <button class="carousel-button prev" (click)="prevSlide()">&#10094;</button>
 

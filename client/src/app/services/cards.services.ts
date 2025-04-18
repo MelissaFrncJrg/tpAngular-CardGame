@@ -25,7 +25,7 @@ export class CardsService {
   }
 
   createCard(card: Partial<CardModel>): Observable<CardModel> {
-    return this.http.post<CardModel>(this.apiUrl, card);
+    return this.http.put<CardModel>(this.apiUrl, card);
   }
 
   updateCard(card: CardModel): Observable<CardModel> {

@@ -16,6 +16,8 @@ import { AuthService } from '../../../services/auth.service';
 export class LoginComponent {
   isLoginView: boolean = false;
 
+  errorMsg?: string;
+
   userRegisterObj: any = {
     name: '',
     login: '',
@@ -27,11 +29,10 @@ export class LoginComponent {
   registerUser(): void {
     this.authService.register(this.userRegisterObj).subscribe({
       next: (res) => {
-        console.log('Profile created', res);
         this.isLoginView = true;
       },
       error: (err) => {
-        console.error('Error creating profile', err);
+        this.errorMsg = 'Error when trying to create user';
       },
     });
   }
@@ -46,11 +47,10 @@ export class LoginComponent {
       .login(this.userLoginObj.login, this.userLoginObj.password)
       .subscribe({
         next: (res) => {
-          console.log('Login ok', res);
           localStorage.setItem('token', res.token);
         },
         error: (err) => {
-          console.error('Error while trying to login', err);
+          this.errorMsg = 'Error when trying to log in';
         },
       });
   }
