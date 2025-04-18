@@ -9,6 +9,7 @@ import { FormsModule } from '@angular/forms';
   imports: [CommonModule, FormsModule],
   templateUrl: './card-details.component.html',
   styleUrls: [
+    './card-details.component.scss',
     '../../../../styles/shared/_card-style.shared.scss',
     '../../../../styles/shared/_button-style.shared.scss',
   ],

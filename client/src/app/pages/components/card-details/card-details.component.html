@@ -1,4 +1,4 @@
-<div *ngIf="card; else errorTpl">
+<div *ngIf="card; else errorTpl" class="detailed-card-wrap">
     <h2>Card details</h2>
     <button class="btn" (click)="backToCardsList()">Back to cards list</button>
 
@@ -24,7 +24,7 @@
         </div>
     </form>
 
-    <div>
+    <div class="action-btns">
         <button class="warning-btn" (click)="onEdit()" *ngIf="!editMode">Update</button>
         <button class="danger-btn" (click)="onDelete()">Delete</button>
     </div>
