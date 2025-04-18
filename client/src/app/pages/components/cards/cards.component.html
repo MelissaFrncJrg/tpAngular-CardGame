@@ -2,10 +2,8 @@
 
 <div *ngIf="errorMsg" class="text-danger">{{ errorMsg }}</div>
 
-<ngx-slick-carousel class="carousel" *ngIf="cards.length" [config]="slideConfig">
-    <div ngxSlickItem *ngFor="let card of cards; trackBy: trackByCardId" class="slide">
-        <div class="card">
-            <a [routerLink]="['/cards', card.id]">{{ card.name }}</a>
-        </div>
-    </div>
-</ngx-slick-carousel>
+<ul *ngIf="!errorMsg">
+    <li class="card" *ngFor="let card of cards">
+        <a [routerLink]="['/cards', card.id]">{{ card.name }}</a>
+    </li>
+</ul>

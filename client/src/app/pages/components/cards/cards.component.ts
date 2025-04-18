@@ -2,11 +2,10 @@ import { CommonModule, NgFor, NgIf } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { CardModel, CardsService } from '../../../services/cards.services';
 import { RouterModule } from '@angular/router';
-import { SlickCarouselModule } from 'ngx-slick-carousel';
 
 @Component({
   selector: 'app-cards',
-  imports: [NgIf, NgFor, CommonModule, RouterModule, SlickCarouselModule],
+  imports: [NgIf, NgFor, CommonModule, RouterModule],
   templateUrl: './cards.component.html',
   styleUrl: '../../../../styles/shared/_card-style.shared.scss',
   standalone: true,
@@ -44,6 +43,7 @@ export class CardsComponent implements OnInit {
     slidesToScroll: 1,
     dots: true,
     infinite: false,
-    arrows: true,
+    nextArrow: '<button type="button" class="custom-next">Next</button>',
+    prevArrow: '<button type="button" class="custom-prev">Prev</button>',
   };
 }
