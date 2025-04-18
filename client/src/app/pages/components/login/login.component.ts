@@ -7,7 +7,10 @@ import { AuthService } from '../../../services/auth.service';
   selector: 'app-login',
   imports: [NgIf, FormsModule],
   templateUrl: './login.component.html',
-  styleUrl: './login.component.scss',
+  styleUrls: [
+    './login.component.scss',
+    '../../../../styles/shared/_button-style.shared.scss',
+  ],
   standalone: true,
 })
 export class LoginComponent {

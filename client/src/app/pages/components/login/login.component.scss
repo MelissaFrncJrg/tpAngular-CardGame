@@ -1,0 +1,76 @@
+:root {
+  --bg-light: #fefefe;
+  --bg-dark: #2d2d2d;
+  --clr: #c850c0;
+  --clr-alpha: #c850c060;
+  --highlight: #ffcc70;
+}
+
+.auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+
+  background-image: var(--card-gradient);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.form-box {
+  width: 40%;
+  padding: 2rem;
+  background-color: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.input-span {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+input[type="text"],
+input[type="password"] {
+  padding: 1rem;
+  border-radius: 0.5rem;
+
+  &:focus {
+    border-color: #c850c0;
+    outline: none;
+    transition: border-color 0.5s ease;
+  }
+}
+
+.label {
+  font-weight: 600;
+  color: #000;
+}
+
+.justify {
+  font-size: 0.9rem;
+  color: #000;
+  text-align: right;
+}
+
+.justify a {
+  color: var(--clr);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.btn-wrap {
+  width: 100%;
+  text-align: center;
+}
+
+.submit-btn {
+  width: 30%;
+}

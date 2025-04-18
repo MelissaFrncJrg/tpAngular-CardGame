@@ -1,86 +1,58 @@
-<section class="h-100 gradient-form" style="background-color: #eee;">
-    <div class="container py-5 h-100">
-        <div class="row d-flex justify-content-center align-items-center h-100">
-            <div class="col-xl-10">
-                <div class="card rounded-3 text-black">
-                    <div class="row g-0">
-                        <div class="col-lg-6">
-                            <div class="card-body p-md-5 mx-md-4">
-
-                                <div class="text-center">
-                                    <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/lotus.webp"
-                                        style="width: 185px;" alt="logo">
-                                    <h4 class="mt-1 mb-5 pb-1">Welcome to your card game</h4>
-                                </div>
-
-                                <form *ngIf="isLoginView; else registerTemplate">
-                                    <h5 class="text-center">Please login to your account</h5>
-
-                                    <div data-mdb-input-init class="form-outline mb-4">
-                                        <label class="form-label" for="form2Example11">Username</label>
-                                        <input type="name" id="form2Example11" class="form-control"
-                                            placeholder="Name" />
-                                    </div>
-
-                                    <div data-mdb-input-init class="form-outline mb-4">
-                                        <label class="form-label" for="form2Example22">Password</label>
-                                        <input type="password" id="form2Example22" class="form-control" />
-                                    </div>
-
-                                    <div class="text-center pt-1 mb-5 pb-1">
-                                        <button data-mdb-button-init data-mdb-ripple-init
-                                            class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="button"
-                                            (click)="loginUser()">Log in</button>
-                                    </div>
-
-                                    <a class="text-muted" href="">Forgot password?</a>
-                                    <div class="d-flex align-items-center justify-content-center pb-4">
-                                        <p class="mb-0 me-2">Don't have an account?</p>
-                                        <button type="button" data-mdb-button-init data-mdb-ripple-init
-                                            class="btn btn-outline-danger" (click)="isLoginView = false">Create
-                                            new</button>
-                                    </div>
-
-                                </form>
-
-                                <!-- REGISTER FORM -->
-                                <ng-template #registerTemplate>
-                                    <form id="register-form">
-                                        <h5 class="text-center">Create your account</h5>
-
-                                        <div data-mdb-input-init class="form-outline mb-4">
-                                            <label class="form-label" for="formRegisterName">Name</label>
-                                            <input type="text" id="formRegisterName" class="form-control"
-                                                placeholder="Name" />
-                                        </div>
-
-                                        <div data-mdb-input-init class="form-outline mb-4">
-                                            <label class="form-label" for="formRegisterLogin">Login</label>
-                                            <input type="text" id="formRegisterLogin" class="form-control"
-                                                placeholder="Username" />
-                                        </div>
-
-                                        <div data-mdb-input-init class="form-outline mb-4">
-                                            <label class="form-label" for="formRegisterPassword">Password</label>
-                                            <input type="password" id="formRegisterPassword" class="form-control"
-                                                placeholder="Password" />
-                                        </div>
-
-                                        <div class="text-center pt-1 mb-5 pb-1">
-                                            <button data-mdb-button-init data-mdb-ripple-init
-                                                class="btn btn-success btn-block fa-lg gradient-custom-2 mb-3"
-                                                type="button" (click)="registerUser()">Register</button>
-                                            <button class="btn text-muted" type="button" (click)="isLoginView = true">
-                                                Back to login
-                                            </button>
-                                        </div>
-                                    </form>
-                                </ng-template>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+<section class="auth-container">
+    <div class="form-box">
+        <div>
+            <h2>Welcome to your card game</h2>
         </div>
+
+        <form class="form" *ngIf="isLoginView; else registerTemplate">
+            <h3>Please login to your account</h3>
+
+            <span class="input-span">
+                <label for="form2Example11" class="label">Email</label>
+                <input type="text" id="form2Example11" placeholder="Email" />
+            </span>
+
+            <span class="input-span">
+                <label for="form2Example22" class="label">Password</label>
+                <input type="password" id="form2Example22" placeholder="Password" />
+            </span>
+
+            <span><a href="#">Forgot password?</a></span>
+
+            <div class="btn-wrap">
+                <button class="submit-btn" type="button" (click)="loginUser()">Log in</button>
+            </div>
+
+            <span class="justify">Don't have an account?
+                <a href="#" (click)="isLoginView = false">Create one</a>
+            </span>
+        </form>
+
+        <!-- REGISTER FORM -->
+        <ng-template #registerTemplate>
+            <form class="form">
+                <h3>Create your account</h3>
+
+                <span class="input-span">
+                    <label for="formRegisterName" class="label">Name</label>
+                    <input type="text" id="formRegisterName" placeholder="Name" />
+                </span>
+
+                <span class="input-span">
+                    <label for="formRegisterLogin" class="label">Email</label>
+                    <input type="text" id="formRegisterLogin" placeholder="Email" />
+                </span>
+
+                <span class="input-span">
+                    <label for="formRegisterPassword" class="label">Password</label>
+                    <input type="password" id="formRegisterPassword" placeholder="Password" />
+                </span>
+
+                <div class="btn-wrap">
+                    <button class="submit-btn" type="button" (click)="registerUser()">Register</button>
+                </div>
+                <a class="justify" href="#" (click)="isLoginView = true; $event.preventDefault()">Back to login</a>
+            </form>
+        </ng-template>
     </div>
 </section>
