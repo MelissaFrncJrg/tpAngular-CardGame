@@ -4,7 +4,7 @@ import { LayoutComponent } from './pages/components/layout/layout.component';
 import { DashboardComponent } from './pages/components/dashboard/dashboard.component';
 import { CardsComponent } from './pages/components/cards/cards.component';
 import { CardDetailsComponent } from './pages/components/card-details/card-details.component';
-
+import { DeckComponent } from './pages/components/deck/deck.component';
 export const routes: Routes = [
   {
     path: '',
@@ -22,6 +22,14 @@ export const routes: Routes = [
   {
     path: 'cards/:id',
     component: CardDetailsComponent,
+  },
+  {
+    path: 'decks',
+    component: DeckComponent,
+  },
+  {
+    path: 'decks/:id',
+    component: DeckComponent,
   },
   {
     path: '',

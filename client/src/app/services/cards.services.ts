@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 export interface CardModel {
-  id?: string;
+  id?: number;
   name: string;
   value: number;
 }
@@ -16,7 +16,7 @@ export class CardsService {
 
   constructor(private http: HttpClient) {}
 
-  getCardbyId(id: string): Observable<CardModel> {
+  getCardbyId(id: number): Observable<CardModel> {
     return this.http.get<CardModel>(`${this.apiUrl}/${id}`);
   }
 
@@ -32,7 +32,7 @@ export class CardsService {
     return this.http.post<CardModel>(`${this.apiUrl}`, card);
   }
 
-  deleteCard(id: string): Observable<void> {
+  deleteCard(id: number): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/${id}`);
   }
 }

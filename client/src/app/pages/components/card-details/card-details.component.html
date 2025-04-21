@@ -1,6 +1,9 @@
 <div *ngIf="card; else errorTpl" class="detailed-card-wrap">
     <h2>Card details</h2>
-    <button class="btn" (click)="backToCardsList()">Back to cards list</button>
+    <button class="btn" (click)="backToCardsList()">
+        <fa-icon [icon]="faArrowLeft"></fa-icon>
+        Back to cards list
+    </button>
 
     <div class="card">
         <p class="card-title">{{ card.name }}</p>
@@ -25,8 +28,9 @@
     </form>
 
     <div class="action-btns">
-        <button class="warning-btn" (click)="onEdit()" *ngIf="!editMode">Update</button>
-        <button class="danger-btn" (click)="onDelete()">Delete</button>
+        <button class="warning-btn" (click)="onEdit()" *ngIf="!editMode"><fa-icon class="icon"
+                [icon]="faPenSquare"></fa-icon>Update</button>
+        <button class="danger-btn" (click)="onDelete()"><fa-icon class="icon" [icon]="faTrash"></fa-icon>Delete</button>
     </div>
 
 </div>

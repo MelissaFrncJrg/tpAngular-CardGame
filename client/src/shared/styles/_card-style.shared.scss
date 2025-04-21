@@ -14,8 +14,10 @@ a {
   text-align: center;
   margin: 3.8rem;
   padding: 1rem;
-  width: 15vw;
-  height: 20vw;
+  min-width: 10rem;
+  max-width: 20rem;
+  aspect-ratio: 3 / 4;
+  border-radius: 1rem;
   border-radius: 1rem;
   background-color: #4158d0;
   background-image: var(--card-gradient);
@@ -30,8 +32,25 @@ a {
 }
 
 .card .card-title {
+  position: relative;
   margin: 0.8rem 0;
   font-size: 2rem !important;
+  cursor: pointer;
+
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 0%;
+    height: 2px;
+    background-color: currentColor;
+    transition: width 0.3s ease;
+  }
+
+  &:hover::after {
+    width: 100%;
+  }
 }
 
 .edit-form {
@@ -43,7 +62,6 @@ a {
   flex-direction: column;
   align-items: center;
   gap: 1rem;
-  max-width: 300px;
   margin-top: 1rem;
 }
 

@@ -1,21 +1,31 @@
+import { ActivatedRoute, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { CardModel, CardsService } from '../../../services/cards.services';
-import { ActivatedRoute, Router } from '@angular/router';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import {
+  faArrowLeft,
+  faPenSquare,
+  faTrash,
+} from '@fortawesome/free-solid-svg-icons';
 import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-card-details',
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, FontAwesomeModule],
   templateUrl: './card-details.component.html',
   styleUrls: [
     './card-details.component.scss',
-    '../../../../styles/shared/_card-style.shared.scss',
-    '../../../../styles/shared/_button-style.shared.scss',
+    '../../../../shared/styles/_card-style.shared.scss',
+    '../../../../shared/styles/_button-style.shared.scss',
   ],
   standalone: true,
 })
 export class CardDetailsComponent {
+  faArrowLeft = faArrowLeft;
+  faPenSquare = faPenSquare;
+  faTrash = faTrash;
+
   card?: CardModel;
   errorMsg?: string;
 
@@ -26,8 +36,9 @@ export class CardDetailsComponent {
   ) {}
 
   ngOnInit(): void {
-    const cardId = this.route.snapshot.paramMap.get('id');
-    if (cardId) {
+    const cardIdParam = this.route.snapshot.paramMap.get('id');
+    if (cardIdParam) {
+      const cardId = Number(cardIdParam);
       this.cardsService.getCardbyId(cardId).subscribe({
         next: (data) => {
           this.card = data;

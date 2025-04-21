@@ -1,0 +1,72 @@
+<h2>My Decks</h2>
+
+<app-carousel class="decks-carousel" [items]="decks" *ngIf="!isCreating">
+    <ng-template let-deck>
+        <div class="card">
+            <fa-icon [icon]="faTrash" class="icon-danger" (click)="confirmDelete(deck.id)"
+                title="Delete this deck"></fa-icon>
+            <p class="card-title" (click)="onDeckClick(deck)">{{ deck.name }}</p>
+            <p>Strength: {{ getDeckValue(deck) }}</p>
+
+        </div>
+    </ng-template>
+</app-carousel>
+
+<div class="alert success" *ngIf="successMsg">
+    {{ successMsg }}
+    <fa-icon [icon]="faXmark" class="close" (click)="successMsg = ''"></fa-icon>
+</div>
+
+<div class="justify" *ngIf="!isCreating">
+    <button class="submit-btn" type="button" (click)="createMode()">New deck</button>
+</div>
+
+<form class="edit-form" *ngIf="isCreating" (ngSubmit)="submitDeck()">
+    <span class="input-span">
+        <label for="deckName" class="label">Deck Name</label>
+        <input type="text" id="deckName" [(ngModel)]="deckName" name="deckName" required />
+
+    </span>
+
+    <span class="deck-data">
+        <p>Select up to 5 cards</p>
+        <p>Total selected: {{ selectedCards.length }} / 5</p>
+        <p>Total strength: {{ getTotalValue() }} / 30</p>
+    </span>
+
+    <div class="cards-section">
+        <h3>Selected cards ({{ selectedCards.length }}/5)</h3>
+        <div class="card-grid">
+            <div class="card selected" *ngFor="let card of selectedCards">
+                <div class="card-header">
+                    <fa-icon [icon]="faSquareMinus" (click)="toggleCardSelection(card)" class="remove-icon"></fa-icon>
+                </div>
+                <p class="card-title">{{ card.name }}</p>
+                <p>Strength: {{ card.value }}</p>
+            </div>
+        </div>
+
+        <h3>Available cards</h3>
+        <div class="card-grid">
+            <div class="card" *ngFor="let card of getAvailableCards()" (click)="toggleCardSelection(card)">
+                <p class="card-title">{{ card.name }}</p>
+                <p>Strength: {{ card.value }}</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="alert error" *ngIf="errorMsg">
+        {{ errorMsg }}
+        <fa-icon [icon]="faXmark" class="close" (click)="errorMsg = ''"></fa-icon>
+    </div>
+
+    <div class="action-btns">
+        <button class="submit-btn" type="submit" [disabled]="selectedCards.length !== 5 || getTotalValue() > 30"
+            [ngClass]="{
+        disabled: selectedCards.length !== 5 || getTotalValue() > 30
+        }">
+            {{ isEditing ? 'Update Deck' : 'Create Deck' }}
+        </button>
+        <button class="warning-btn" type="button" (click)="resetForm()">Cancel</button>
+    </div>
+</form>

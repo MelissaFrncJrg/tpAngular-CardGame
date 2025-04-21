@@ -33,8 +33,17 @@ a {
   color: #000;
 }
 
+p {
+  font-size: 1.3rem;
+}
+
 .text-danger {
   color: #dc3545;
+}
+
+.justify {
+  width: 100%;
+  justify-content: left !important;
 }
 
 :root {

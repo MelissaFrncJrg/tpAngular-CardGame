@@ -9,7 +9,7 @@ import { AuthService } from '../../../services/auth.service';
   templateUrl: './login.component.html',
   styleUrls: [
     './login.component.scss',
-    '../../../../styles/shared/_button-style.shared.scss',
+    '../../../../shared/styles/_button-style.shared.scss',
   ],
   standalone: true,
 })
