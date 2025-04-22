@@ -2,6 +2,9 @@ import { NgIf } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from '../../../services/auth.service';
+import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
+import { UserService } from '../../../services/user.service';
 
 @Component({
   selector: 'app-login',
@@ -24,14 +27,20 @@ export class LoginComponent {
     password: '',
   };
 
-  constructor(private authService: AuthService) {}
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    private http: HttpClient,
+    private userService: UserService
+  ) {}
 
   registerUser(): void {
     this.authService.register(this.userRegisterObj).subscribe({
-      next: (res) => {
+      next: () => {
         this.isLoginView = true;
+        this.errorMsg = undefined;
       },
-      error: (err) => {
+      error: () => {
         this.errorMsg = 'Error when trying to create user';
       },
     });
@@ -48,8 +57,10 @@ export class LoginComponent {
       .subscribe({
         next: (res) => {
           localStorage.setItem('token', res.token);
+          this.userService.token = res.token;
+          this.router.navigate(['/layout/cards']);
         },
-        error: (err) => {
+        error: () => {
           this.errorMsg = 'Error when trying to log in';
         },
       });

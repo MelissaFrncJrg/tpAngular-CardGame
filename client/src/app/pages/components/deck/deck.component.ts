@@ -118,7 +118,7 @@ export class DeckComponent implements OnInit {
 
         if (this.isEditing && this.editedDeck.cards.length) {
           this.selectedCards = this.allCards.filter((card) =>
-            this.editedDeck.cards.includes(card.id!)
+            this.editedDeck.cards.some(id => String(id) === String(card.id))
           );
         }
       },
@@ -141,7 +141,7 @@ export class DeckComponent implements OnInit {
 
     const newDeck: Partial<DeckModel> = {
       name: this.deckName,
-      cards: this.selectedCards.map((c) => c.id!),
+      cards: this.selectedCards.map((c) => Number(c.id!)),
     };
 
     this.decksService.createDeck(newDeck).subscribe({
@@ -164,7 +164,7 @@ export class DeckComponent implements OnInit {
     }
 
     deck.name = this.deckName;
-    deck.cards = this.selectedCards.map((c) => c.id!);
+    deck.cards = this.selectedCards.map((c) => Number(c.id!));
 
     this.decksService.updateDeck(deck).subscribe({
       next: (updatedDeck) => {
@@ -180,8 +180,8 @@ export class DeckComponent implements OnInit {
   }
 
   getDeckValue(deck: DeckModel): number {
-    return deck.cards.reduce((sum: number, id: number) => {
-      const card = this.allCards.find((card) => card.id === id);
+    return deck.cards.reduce((sum: number, id: string | number) => {
+      const card = this.allCards.find((card) => String(card.id) === String(id));
       return sum + (card?.value ?? 0);
     }, 0);
   }
@@ -195,7 +195,7 @@ export class DeckComponent implements OnInit {
   }
 
   toggleCardSelection(card: CardModel): void {
-    const index = this.selectedCards.findIndex((c) => c.id === card.id);
+    const index = this.selectedCards.findIndex((c) => String(c.id) === String(card.id));
     if (index > -1) {
       this.selectedCards.splice(index, 1);
     } else {
@@ -211,8 +211,8 @@ export class DeckComponent implements OnInit {
     }
   }
 
-  deleteDeck(deckId: string): void {
-    this.decksService.deleteDeck(deckId).subscribe({
+  deleteDeck(deckId: string | number): void {
+    this.decksService.deleteDeck(String(deckId)).subscribe({
       next: () => {
         this.decks = this.decks.filter((deck) => deck.id !== deckId);
         this.successMsg = 'Deck deleted successfully.';
@@ -223,7 +223,7 @@ export class DeckComponent implements OnInit {
     });
   }
 
-  confirmDelete(deckId: string): void {
+  confirmDelete(deckId: string | number): void {
     const confirmMsg =
       'This action is definitive. Are you sure you want to delete this deck?';
 

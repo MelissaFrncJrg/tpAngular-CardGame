@@ -1,1 +1,12 @@
-<p>layout works!</p>
+<header class="navbar">
+    <nav class="left">
+        <a routerLink="/layout/cards" routerLinkActive="active">Cards</a>
+        <a routerLink="/layout/decks" routerLinkActive="active">Decks</a>
+    </nav>
+
+    <div class="right">
+        <fa-icon [icon]="faArrowRightFromBracket" (click)="logout()" title="Logout" class="logout-icon"></fa-icon>
+    </div>
+</header>
+
+<router-outlet></router-outlet>

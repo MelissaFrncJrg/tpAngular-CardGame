@@ -8,16 +8,22 @@
             <h3>Please login to your account</h3>
 
             <span class="input-span">
-                <label for="form2Example11" class="label">Email</label>
-                <input type="text" id="form2Example11" placeholder="Email" />
+                <label for="Email" class="label">Email</label>
+                <input type="text" id="Email" placeholder="Email" [(ngModel)]="userLoginObj.login" name="login"
+                    required />
             </span>
 
             <span class="input-span">
-                <label for="form2Example22" class="label">Password</label>
-                <input type="password" id="form2Example22" placeholder="Password" />
+                <label for="Password" class="label">Password</label>
+                <input type="password" id="Password" placeholder="Password" [(ngModel)]="userLoginObj.password"
+                    name="password" required />
             </span>
 
             <span><a href="#">Forgot password?</a></span>
+
+            <div *ngIf="errorMsg" class="alert error">
+                {{ errorMsg }}
+            </div>
 
             <div class="btn-wrap">
                 <button class="submit-btn" type="button" (click)="loginUser()">Log in</button>
@@ -35,18 +41,25 @@
 
                 <span class="input-span">
                     <label for="formRegisterName" class="label">Name</label>
-                    <input type="text" id="formRegisterName" placeholder="Name" />
+                    <input type="text" id="formRegisterName" placeholder="Name" [(ngModel)]="userRegisterObj.name"
+                        name="name" />
                 </span>
 
                 <span class="input-span">
-                    <label for="formRegisterLogin" class="label">Email</label>
-                    <input type="text" id="formRegisterLogin" placeholder="Email" />
+                    <label for="formRegisterEmail" class="label">Email</label>
+                    <input type="text" id="formRegisterEmail" placeholder="Email" [(ngModel)]="userRegisterObj.login"
+                        name="login" />
                 </span>
 
                 <span class="input-span">
                     <label for="formRegisterPassword" class="label">Password</label>
-                    <input type="password" id="formRegisterPassword" placeholder="Password" />
+                    <input type="password" id="formRegisterPassword" placeholder="Password"
+                        [(ngModel)]="userRegisterObj.password" name="password" />
                 </span>
+
+                <div *ngIf="errorMsg" class="alert error">
+                    {{ errorMsg }}
+                </div>
 
                 <div class="btn-wrap">
                     <button class="submit-btn" type="button" (click)="registerUser()">Register</button>

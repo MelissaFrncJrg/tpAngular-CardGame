@@ -10,20 +10,17 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  position: relative;
+  max-width: 120vw;
 }
 
 .carousel-track {
   width: 70%;
   overflow: hidden;
-  position: relative;
-  perspective: 1000px;
 }
 
 .carousel-slides {
   display: flex;
   transition: transform 0.5s ease;
-  position: relative;
 }
 
 .carousel-slide {

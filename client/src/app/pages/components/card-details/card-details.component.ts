@@ -38,8 +38,7 @@ export class CardDetailsComponent {
   ngOnInit(): void {
     const cardIdParam = this.route.snapshot.paramMap.get('id');
     if (cardIdParam) {
-      const cardId = Number(cardIdParam);
-      this.cardsService.getCardbyId(cardId).subscribe({
+      this.cardsService.getCardbyId(cardIdParam).subscribe({
         next: (data) => {
           this.card = data;
         },
@@ -79,8 +78,8 @@ export class CardDetailsComponent {
     if (!this.card?.id) return;
 
     if (confirm('Are you sure you want to delete this card?')) {
-      this.cardsService.deleteCard(this.card.id).subscribe({
-        next: () => this.router.navigate(['/cards']),
+      this.cardsService.deleteCard(String(this.card.id)).subscribe({
+        next: () => this.router.navigate(['/layout/cards']),
         error: (err) => {
           this.errorMsg = 'Failed to delete the card.';
           console.error(err);
@@ -90,6 +89,6 @@ export class CardDetailsComponent {
   }
 
   backToCardsList(): void {
-    this.router.navigate(['/cards']);
+    this.router.navigate(['/layout/cards']);
   }
 }

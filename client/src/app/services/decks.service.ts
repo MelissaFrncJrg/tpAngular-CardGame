@@ -1,10 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { CardModel } from './cards.services';
 
 export interface DeckModel {
-  id?: string;
+  id?: string | number;
   name: string;
   cards: number[];
 }
@@ -17,7 +16,7 @@ export class DecksService {
 
   constructor(private http: HttpClient) {}
 
-  getDeckbyId(id: string): Observable<DeckModel> {
+  getDeckbyId(id: string | number): Observable<DeckModel> {
     return this.http.get<DeckModel>(`${this.apiUrl}/${id}`);
   }
 
@@ -33,7 +32,7 @@ export class DecksService {
     return this.http.post<DeckModel>(`${this.apiUrl}`, deck);
   }
 
-  deleteDeck(id: string): Observable<void> {
+  deleteDeck(id: string | number): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/${id}`);
   }
 }
