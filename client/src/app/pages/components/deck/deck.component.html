@@ -5,7 +5,7 @@
         <div class="card">
             <fa-icon [icon]="faTrash" class="icon-danger" (click)="confirmDelete(deck.id)"
                 title="Delete this deck"></fa-icon>
-            <p class="card-title" (click)="onDeckClick(deck)">{{ deck.name }}</p>
+            <p class="underline" (click)="onDeckClick(deck)">{{ deck.name }}</p>
             <p>Strength: {{ getDeckValue(deck) }}</p>
 
         </div>
@@ -29,8 +29,7 @@
     </span>
 
     <span class="deck-data">
-        <p>Select up to 5 cards</p>
-        <p>Total selected: {{ selectedCards.length }} / 5</p>
+        <p>Cards selected: {{ selectedCards.length }} / 5</p>
         <p>Total strength: {{ getTotalValue() }} / 30</p>
     </span>
 
@@ -41,7 +40,7 @@
                 <div class="card-header">
                     <fa-icon [icon]="faSquareMinus" (click)="toggleCardSelection(card)" class="remove-icon"></fa-icon>
                 </div>
-                <p class="card-title">{{ card.name }}</p>
+                <p class="underline">{{ card.name }}</p>
                 <p>Strength: {{ card.value }}</p>
             </div>
         </div>
@@ -49,7 +48,7 @@
         <h3>Available cards</h3>
         <div class="card-grid">
             <div class="card" *ngFor="let card of getAvailableCards()" (click)="toggleCardSelection(card)">
-                <p class="card-title">{{ card.name }}</p>
+                <p class="underline">{{ card.name }}</p>
                 <p>Strength: {{ card.value }}</p>
             </div>
         </div>

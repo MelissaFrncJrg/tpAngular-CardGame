@@ -32,7 +32,7 @@
         <app-carousel [items]="cards">
             <ng-template let-card>
                 <div class="card">
-                    <a [routerLink]="['/layout/cards', card.id]">{{ card.name }}</a>
+                    <a class="underline" [routerLink]="['/layout/cards', card.id]">{{ card.name }}</a>
                 </div>
             </ng-template>
         </app-carousel>

@@ -1,13 +1,14 @@
 <div *ngIf="card; else errorTpl" class="detailed-card-wrap">
-    <h2>Card details</h2>
     <button class="btn" (click)="backToCardsList()">
         <fa-icon [icon]="faArrowLeft"></fa-icon>
         Back to cards list
     </button>
 
+    <h2>Card details</h2>
+
     <div class="card">
-        <p class="card-title">{{ card.name }}</p>
-        <p class="card-value">{{ card.value }}</p>
+        <h3 class="underline">{{ card.name }}</h3>
+        <h4>{{ card.value }}</h4>
     </div>
 
     <form class="edit-form" *ngIf="editMode" (ngSubmit)="onSave()">
