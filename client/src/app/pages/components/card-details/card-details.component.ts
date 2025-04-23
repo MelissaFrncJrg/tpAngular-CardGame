@@ -1,7 +1,8 @@
 import { ActivatedRoute, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, resolveForwardRef } from '@angular/core';
 import { CardModel, CardsService } from '../../../services/cards.services';
+import { DecksService } from '../../../services/decks.service';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import {
   faArrowLeft,
@@ -32,6 +33,7 @@ export class CardDetailsComponent {
   constructor(
     private route: ActivatedRoute,
     private cardsService: CardsService,
+    private decksService: DecksService,
     private router: Router
   ) {}
 
@@ -44,10 +46,32 @@ export class CardDetailsComponent {
         },
         error: (err) => {
           this.errorMsg = 'Error when trying to load this card.';
-          console.error(err);
         },
       });
     }
+  }
+
+  private isCardInDeck(cardId: string | number): Promise<boolean> {
+    return new Promise((resolve, reject) => {
+      this.decksService.getAllDecks().subscribe({
+        next: (decks) => {
+          const isUsed = decks.some((deck) =>
+            deck.cards.includes(Number(cardId))
+          );
+          resolve(isUsed);
+        },
+        error: (err) => {
+          reject(err);
+        },
+      });
+    });
+  }
+
+  private showThenClearError(message: string): void {
+    this.errorMsg = message;
+    setTimeout(() => {
+      this.errorMsg = '';
+    }, 10000);
   }
 
   editMode = false;
@@ -68,8 +92,7 @@ export class CardDetailsComponent {
         this.editMode = false;
       },
       error: (err) => {
-        this.errorMsg = 'Failed to update the card.';
-        console.error(err);
+        this.showThenClearError('Failed to update the card.');
       },
     });
   }
@@ -77,15 +100,27 @@ export class CardDetailsComponent {
   onDelete(): void {
     if (!this.card?.id) return;
 
-    if (confirm('Are you sure you want to delete this card?')) {
-      this.cardsService.deleteCard(String(this.card.id)).subscribe({
-        next: () => this.router.navigate(['/layout/cards']),
-        error: (err) => {
-          this.errorMsg = 'Failed to delete the card.';
-          console.error(err);
-        },
+    this.isCardInDeck(this.card.id)
+      .then((isUsed) => {
+        if (isUsed) {
+          this.showThenClearError(
+            'You can’t delete a card that is part of a deck.'
+          );
+          return;
+        }
+
+        if (confirm('Are you sure you want to delete this card?')) {
+          this.cardsService.deleteCard(String(this.card?.id)).subscribe({
+            next: () => this.router.navigate(['/layout/cards']),
+            error: (err) => {
+              this.showThenClearError('Failed to delete the card.');
+            },
+          });
+        }
+      })
+      .catch((err) => {
+        this.showThenClearError('Failed to verify decks.');
       });
-    }
   }
 
   backToCardsList(): void {

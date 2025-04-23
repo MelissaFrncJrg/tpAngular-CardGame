@@ -36,8 +36,8 @@
   background-color: #ffcc70;
   color: #4158d0;
   &:hover {
-    background-color: #4158d0;
-    color: #000;
+    background-color: #c850c0;
+    color: #fff;
   }
 }
 
@@ -45,9 +45,9 @@
   background-color: #dc3545;
   color: #fff;
   &:hover {
+    border: 1px solid #dc3545;
     background-color: #fff;
     color: #dc3545;
-    border: 1px solid #dc3545;
   }
 }
 
