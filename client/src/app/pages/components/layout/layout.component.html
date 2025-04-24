@@ -7,6 +7,12 @@
     </nav>
 
     <div class="right">
+        <div class="toggle-switch">
+            <label class="switch-label">
+                <input type="checkbox" class="checkbox" (change)="toggleTheme($event)">
+                <span class="slider"></span>
+            </label>
+        </div>
         <fa-icon [icon]="faArrowRightFromBracket" (click)="logout()" title="Logout" class="logout-icon"></fa-icon>
     </div>
 </header>

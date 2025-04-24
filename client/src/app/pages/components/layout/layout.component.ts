@@ -16,6 +16,16 @@ export class LayoutComponent {
 
   constructor(private userService: UserService, private router: Router) {}
 
+  toggleTheme(event: Event): void {
+    const isChecked = (event.target as HTMLInputElement).checked;
+
+    if (isChecked) {
+      document.body.classList.add('dark-theme');
+    } else {
+      document.body.classList.remove('dark-theme');
+    }
+  }
+
   logout(): void {
     this.userService.logout();
     this.router.navigate(['/login']);
