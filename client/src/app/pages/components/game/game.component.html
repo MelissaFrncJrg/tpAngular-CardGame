@@ -1,1 +1,76 @@
-<p>game works!</p>
+<div class="game-container" [ngClass]="gameState">
+    <div *ngIf="gameState === 'deck-selection'" class="deck-selection-phase">
+        <h2>Select your deck</h2>
+
+        <div *ngIf="errorMsg" class="error">{{ errorMsg }}</div>
+
+        <div class="decks-list">
+            <div *ngFor="let deck of decks" class="deck-card" (click)="selectDeck(deck)">
+                <h3>{{ deck.name }}</h3>
+                <p>Cards: {{ deck.cards.length }}</p>
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="gameState === 'playing'" class="playing-phase">
+        <h2>Round {{ currentRound }} / {{ maxRounds }}</h2>
+
+        <div *ngIf="errorMsg" class="error">{{ errorMsg }}</div>
+
+        <div class="deck-selection">
+            <h3>Your deck : {{ playerDeck?.name }}</h3>
+            <div class="deck">
+                <button *ngFor="let cardId of playerDeck?.cards"
+                    [disabled]="isPlayerReady || playerPlayedCards.includes(+cardId)"
+                    (click)="getCardById(cardId) && selectCard(getCardById(cardId)!)"
+                    [class.played]="playerPlayedCards.includes(+cardId)">
+                    {{ getCardById(cardId)?.name }} {{ getCardById(cardId)?.value }}
+                </button>
+            </div>
+            <div class="ready">
+                <button *ngIf="playerSelectedCard && !isPlayerReady" (click)="confirmReadyToPlay()" class="submit-btn">
+                    Ready (reveal cards)
+                </button>
+            </div>
+        </div>
+
+        <div class="card-battlefield">
+            <div class="player-card" [class.selected]="!!playerSelectedCard">
+                <div class="card-face" [class.flipped]="isPlayerReady">
+                    <div class="card-back">?</div>
+                    <div class="card card-front">{{ playerSelectedCard?.name }} {{ playerSelectedCard?.value }}</div>
+                </div>
+            </div>
+
+            <div class="versus">VS</div>
+
+            <div class="opponent-card" [class.selected]="isOpponentReady">
+                <div class="card-face" [class.flipped]="isOpponentReady">
+                    <div class="card-back">?</div>
+                    <div class="card-front">{{ opponentSelectedCard?.name }} {{ opponentSelectedCard?.value }}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="score-display">
+            <p>Your score {{ playerScore }} - Opponent score {{ opponentScore }}</p>
+        </div>
+    </div>
+
+    <div *ngIf="gameState === 'game-over'" class="game-over-phase">
+        <h2>Partie terminée!</h2>
+
+        <div class="final-score">
+            <p>Final score : You {{ playerScore }} - Opponent {{ opponentScore }}</p>
+
+            <div class="result">
+                <p *ngIf="playerScore > opponentScore" class="win">You win!</p>
+                <p *ngIf="playerScore < opponentScore" class="lose">You loose...</p>
+                <p *ngIf="playerScore === opponentScore" class="draw">Draw!</p>
+            </div>
+        </div>
+
+        <button (click)="restartGame()" class="submit-btn">New game</button>
+    </div>
+</div>

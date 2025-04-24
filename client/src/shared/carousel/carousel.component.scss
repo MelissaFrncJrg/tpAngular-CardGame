@@ -6,6 +6,26 @@
   overflow: hidden;
 }
 
+.carousel-loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 250px;
+  font-size: 1.3rem;
+  color: #4158d0;
+  animation: blink 1s infinite;
+
+  @keyframes blink {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.5;
+    }
+  }
+}
+
 .carousel-button-container {
   display: flex;
   align-items: center;

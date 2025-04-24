@@ -56,7 +56,7 @@ export class CardDetailsComponent {
       this.decksService.getAllDecks().subscribe({
         next: (decks) => {
           const isUsed = decks.some((deck) =>
-            deck.cards.includes(Number(cardId))
+            deck.cards.some((id) => String(id) === String(cardId))
           );
           resolve(isUsed);
         },
@@ -71,11 +71,11 @@ export class CardDetailsComponent {
     this.errorMsg = message;
     setTimeout(() => {
       this.errorMsg = '';
-    }, 10000);
+    }, 50000000);
   }
 
   editMode = false;
-  editedCard: CardModel = { name: '', value: 0 };
+  editedCard: CardModel = { name: '', description: '', value: 0 };
 
   onEdit(): void {
     if (!this.card) return;
@@ -85,6 +85,11 @@ export class CardDetailsComponent {
 
   onSave(): void {
     if (!this.editedCard.id) return;
+
+    if (this.editedCard.value > 20) {
+      this.showThenClearError('Card value must not exceed 20');
+      return;
+    }
 
     this.cardsService.updateCard(this.editedCard).subscribe({
       next: () => {

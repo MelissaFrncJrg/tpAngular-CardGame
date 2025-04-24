@@ -1,6 +1,10 @@
 <div class="carousel-container">
-    <div class="carousel-button-container">
-        <button class="carousel-button prev" (click)="prevSlide()">&#10094;</button>
+    <div *ngIf="isLoading" class="carousel-loader">
+        <p>Loading...</p>
+    </div>
+
+    <div *ngIf="!isLoading" class="carousel-button-container">
+        <fa-icon class="carousel-button prev" (click)="prevSlide()" [icon]="faChevronLeft"></fa-icon>
 
         <div class="carousel-track">
             <div class="carousel-slides" [style.transform]="getCarouselTransform()">
@@ -11,7 +15,8 @@
             </div>
         </div>
 
-        <button class="carousel-button next" (click)="nextSlide()">&#10095;</button>
+        <fa-icon class="carousel-button next" (click)="nextSlide()" [icon]="faChevronRight"></fa-icon>
+
     </div>
 
     <div class="carousel-dots">

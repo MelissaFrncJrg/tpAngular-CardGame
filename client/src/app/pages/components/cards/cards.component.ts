@@ -21,12 +21,19 @@ export class CardsComponent implements OnInit {
   errorMsg?: string;
 
   isCreating: boolean = false;
-  editedCard: Partial<CardModel> = { name: '', value: 0 };
+  editedCard: Partial<CardModel> = { name: '', description: '', value: 0 };
 
   constructor(private cardsService: CardsService) {}
 
   ngOnInit(): void {
     this.loadCards();
+  }
+
+  private showThenClearError(message: string): void {
+    this.errorMsg = message;
+    setTimeout(() => {
+      this.errorMsg = '';
+    }, 5000);
   }
 
   async loadCards(): Promise<void> {
@@ -36,18 +43,23 @@ export class CardsComponent implements OnInit {
       },
 
       error: (err) => {
-        (this.errorMsg = 'Error loading cards: '), err;
+        this.showThenClearError('Error loading cards: '), err;
       },
     });
   }
 
   startCreateCard(): void {
-    this.editedCard = { name: '', value: 0 };
+    this.editedCard = { name: '', description: '', value: 0 };
     this.isCreating = true;
   }
 
   onSave(): void {
     if (!this.editedCard.name || this.editedCard.value == null) return;
+
+    if (this.editedCard.value > 20) {
+      this.showThenClearError('Card value must not exceed 20!');
+      return;
+    }
 
     this.cardsService.createCard(this.editedCard).subscribe({
       next: (createdCard) => {
@@ -55,7 +67,7 @@ export class CardsComponent implements OnInit {
         this.isCreating = false;
       },
       error: (err) => {
-        this.errorMsg = 'Error creating card.';
+        this.showThenClearError('Error creating card.');
         console.error('Error creating card:', err);
       },
     });

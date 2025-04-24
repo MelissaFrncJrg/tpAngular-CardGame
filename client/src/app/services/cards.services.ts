@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 export interface CardModel {
   id?: string | number;
   name: string;
+  description: string;
   value: number;
 }
 

@@ -6,15 +6,23 @@
 
     <h2>Card details</h2>
 
-    <div class="card">
-        <h3 class="underline">{{ card.name }}</h3>
-        <h4>{{ card.value }}</h4>
+    <div class="center">
+        <div class="card">
+            <h3 class="underline">{{ card.name }}</h3>
+            <h4>{{ card.value }}</h4>
+            <p>{{ card.description }}</p>
+        </div>
     </div>
 
     <form class="edit-form" *ngIf="editMode" (ngSubmit)="onSave()">
         <span class="input-span">
             <label for="name" class="label">Name</label>
             <input type="text" id="name" [(ngModel)]="editedCard.name" name="name" />
+        </span>
+
+        <span class="input-span">
+            <label for="description" class="label">Description</label>
+            <textarea id="description" [(ngModel)]="editedCard.description" name="description" rows="4"></textarea>
         </span>
 
         <span class="input-span">
@@ -28,13 +36,14 @@
         </div>
     </form>
 
-
     <div class="action-btns">
         <button class="warning-btn" (click)="onEdit()" *ngIf="!editMode"><fa-icon class="icon"
                 [icon]="faPenSquare"></fa-icon>Update</button>
         <button class="danger-btn" (click)="onDelete()"><fa-icon class="icon" [icon]="faTrash"></fa-icon>Delete</button>
     </div>
 
-    <p class="text-danger msg" *ngIf="errorMsg">{{ errorMsg }}</p>
+    <div class="error-container">
+        <div *ngIf="errorMsg" class="text-danger msg">{{ errorMsg }}</div>
+    </div>
 
 </div>

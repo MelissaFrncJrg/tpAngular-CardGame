@@ -6,12 +6,17 @@ import {
   HostListener,
   OnInit,
 } from '@angular/core';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import {
+  faChevronLeft,
+  faChevronRight,
+} from '@fortawesome/free-solid-svg-icons';
 import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-carousel',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, FontAwesomeModule],
   templateUrl: './carousel.component.html',
   styleUrls: ['./carousel.component.scss'],
 })
@@ -19,12 +24,21 @@ export class CarouselComponent implements OnInit {
   @Input() items: any[] = [];
   @ContentChild(TemplateRef) itemTemplate!: TemplateRef<any>;
 
+  faChevronLeft = faChevronLeft;
+  faChevronRight = faChevronRight;
+
+  isLoading = true;
+
   currentIndex = 0;
   slideWidth = 200;
   visibleSlides = 3;
 
   ngOnInit(): void {
     this.onResize();
+
+    setTimeout(() => {
+      this.isLoading = false;
+    }, 500);
   }
 
   @HostListener('window:resize')

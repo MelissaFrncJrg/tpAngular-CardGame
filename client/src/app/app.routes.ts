@@ -5,6 +5,7 @@ import { CardDetailsComponent } from './pages/components/card-details/card-detai
 import { DeckComponent } from './pages/components/deck/deck.component';
 import { LayoutComponent } from './pages/components/layout/layout.component';
 import { authGuard } from './services/auth.guard';
+import { GameComponent } from './pages/components/game/game.component';
 
 export const routes: Routes = [
   {
@@ -33,6 +34,10 @@ export const routes: Routes = [
       {
         path: 'decks',
         component: DeckComponent,
+      },
+      {
+        path: 'game',
+        component: GameComponent,
       },
     ],
   },

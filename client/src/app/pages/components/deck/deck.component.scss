@@ -51,7 +51,6 @@
 .cards-section {
   width: 100%;
   max-width: 1000px;
-  margin: 2rem auto;
   padding: 1rem;
   display: flex;
   flex-direction: column;
@@ -60,7 +59,7 @@
 
 .card-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));
   gap: 2rem;
   justify-items: center;
   width: 100%;

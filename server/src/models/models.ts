@@ -1,20 +1,20 @@
 export interface BaseModel {
-    id?: string | undefined;
+  id?: string | undefined;
 }
 
 export interface CardBasicModel extends BaseModel {
-    name: string;
+  name: string;
 }
 export interface CardModel extends CardBasicModel {
-    value: number;
+  value: number;
 }
 
 export interface DeckModel extends BaseModel {
-    name: string;
-    cards: string[];
+  name: string;
+  cards: string[];
 }
 
 export interface DeckWithCardsModel extends BaseModel {
-    name: string;
-    cards: CardModel[];
+  name: string;
+  cards: CardModel[];
 }

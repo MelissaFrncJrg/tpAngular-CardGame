@@ -12,11 +12,18 @@
     </span>
 
     <span class="input-span">
+        <label for="description" class="label">Description</label>
+        <textarea id="description" [(ngModel)]="editedCard.description" name="description" rows="4"></textarea>
+    </span>
+
+    <span class="input-span">
         <label for="value" class="label">Value</label>
         <input type="number" id="value" [(ngModel)]="editedCard.value" name="value" required />
     </span>
 
-    <div *ngIf="errorMsg" class="text-danger">{{ errorMsg }}</div>
+    <div class="error-container">
+        <div *ngIf="errorMsg" class="text-danger">{{ errorMsg }}</div>
+    </div>
 
     <div class="action-btns">
         <button class="submit-btn" type="submit">Save</button>
@@ -32,7 +39,7 @@
         <app-carousel [items]="cards">
             <ng-template let-card>
                 <div class="card">
-                    <a class="underline" [routerLink]="['/layout/cards', card.id]">{{ card.name }}</a>
+                    <a class="underline" [routerLink]="['/layout/cards', card.id]">{{ card.name }} </a>
                 </div>
             </ng-template>
         </app-carousel>

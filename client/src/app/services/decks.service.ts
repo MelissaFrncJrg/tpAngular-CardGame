@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 export interface DeckModel {
   id?: string | number;
   name: string;
-  cards: number[];
+  cards: (string | number)[];
 }
 
 @Injectable({

@@ -118,7 +118,7 @@ export class DeckComponent implements OnInit {
 
         if (this.isEditing && this.editedDeck.cards.length) {
           this.selectedCards = this.allCards.filter((card) =>
-            this.editedDeck.cards.some(id => String(id) === String(card.id))
+            this.editedDeck.cards.some((id) => String(id) === String(card.id))
           );
         }
       },
@@ -141,7 +141,7 @@ export class DeckComponent implements OnInit {
 
     const newDeck: Partial<DeckModel> = {
       name: this.deckName,
-      cards: this.selectedCards.map((c) => Number(c.id!)),
+      cards: this.selectedCards.map((c) => String(c.id!)),
     };
 
     this.decksService.createDeck(newDeck).subscribe({
@@ -164,7 +164,7 @@ export class DeckComponent implements OnInit {
     }
 
     deck.name = this.deckName;
-    deck.cards = this.selectedCards.map((c) => Number(c.id!));
+    deck.cards = this.selectedCards.map((c) => String(c.id!));
 
     this.decksService.updateDeck(deck).subscribe({
       next: (updatedDeck) => {
@@ -195,12 +195,14 @@ export class DeckComponent implements OnInit {
   }
 
   toggleCardSelection(card: CardModel): void {
-    const index = this.selectedCards.findIndex((c) => String(c.id) === String(card.id));
+    const index = this.selectedCards.findIndex(
+      (c) => String(c.id) === String(card.id)
+    );
     if (index > -1) {
       this.selectedCards.splice(index, 1);
     } else {
       if (this.selectedCards.length >= 5) {
-        this.errorMsg = 'You can select up to 5 cards.';
+        this.errorMsg = 'Decks are limited to 5 cards.';
         return;
       }
       if (this.getTotalValue() + card.value > 30) {
