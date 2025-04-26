@@ -1,10 +1,10 @@
 <div *ngIf="card" class="detailed-card-wrap">
-    <button class="btn" (click)="backToCardsList()">
+    <button class="btn" (click)="backToCardsList()" i18n="@@backToCards">
         <fa-icon [icon]="faArrowLeft"></fa-icon>
         Back to cards list
     </button>
 
-    <h2>Card details</h2>
+    <h2 i18n="@@cardDetails">Card details</h2>
 
     <div class="center">
         <div class="card">
@@ -16,31 +16,32 @@
 
     <form class="edit-form" *ngIf="editMode" (ngSubmit)="onSave()">
         <span class="input-span">
-            <label for="name" class="label">Name</label>
+            <label for="name" class="label" i18n="@@name">Name</label>
             <input type="text" id="name" [(ngModel)]="editedCard.name" name="name" required />
         </span>
 
         <span class="input-span">
-            <label for="description" class="label">Description</label>
+            <label for="description" class="label" i18n="@@desc">Description</label>
             <textarea id="description" [(ngModel)]="editedCard.description" name="description" rows="4"
                 required></textarea>
         </span>
 
         <span class="input-span">
-            <label for="value" class="label">Value</label>
+            <label for="value" class="label" i18n="@@value">Value</label>
             <input type="number" id="value" [(ngModel)]="editedCard.value" name="value" min="0" max="20" required />
         </span>
 
         <div class="action-btns">
-            <button class="submit-btn" type="submit" [disabled]="formInvalid">Save</button>
-            <button type="button" class="warning-btn" (click)="editMode = false">Cancel</button>
+            <button class="submit-btn" type="submit" [disabled]="formInvalid" i18n="@@save">Save</button>
+            <button type="button" class="warning-btn" (click)="editMode = false" i18n="@@cancel">Cancel</button>
         </div>
     </form>
 
     <div class="action-btns">
-        <button class="warning-btn" (click)="onEdit()" *ngIf="!editMode"><fa-icon class="icon"
+        <button class="warning-btn" (click)="onEdit()" *ngIf="!editMode" i18n="@@update"><fa-icon class="icon"
                 [icon]="faPenSquare"></fa-icon>Update</button>
-        <button class="danger-btn" (click)="onDelete()"><fa-icon class="icon" [icon]="faTrash"></fa-icon>Delete</button>
+        <button class="danger-btn" (click)="onDelete()" i18n="@@delete"><fa-icon class="icon"
+                [icon]="faTrash"></fa-icon>Delete</button>
     </div>
 
     <div class="error-container">

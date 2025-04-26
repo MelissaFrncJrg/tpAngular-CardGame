@@ -1,10 +1,10 @@
 <div class="carousel-container">
     <div *ngIf="isLoading" class="carousel-loader">
-        <p>Loading...</p>
+        <p i18n="@@load">Loading...</p>
     </div>
 
     <div *ngIf="!isLoading && items.length === 0" class="empty">
-        <p>No items have been created yet</p>
+        <p i18n="@@noItems">No items have been created yet</p>
     </div>
 
     <div *ngIf="!isLoading" class="carousel-button-container">

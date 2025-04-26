@@ -1,4 +1,4 @@
-<h2>My Decks</h2>
+<h2 i18n="@@decksTitle">My Decks</h2>
 
 <app-carousel class="decks-carousel" [items]="decks" *ngIf="!isCreating">
     <ng-template let-deck>
@@ -6,7 +6,7 @@
             <fa-icon [icon]="faTrash" class="icon-danger" (click)="confirmDelete(deck.id)"
                 title="Delete this deck"></fa-icon>
             <p class="underline" (click)="onDeckClick(deck)">{{ deck.name }}</p>
-            <p>Strength: {{ getDeckValue(deck) }}</p>
+            <p i18n="@@strength">Strength: {{ getDeckValue(deck) }}</p>
 
         </div>
     </ng-template>
@@ -18,38 +18,38 @@
 </div>
 
 <div class="justify" *ngIf="!isCreating">
-    <button class="submit-btn" type="button" (click)="createMode()">New deck</button>
+    <button class="submit-btn" type="button" (click)="createMode()" i18n="@@newDeck">New deck</button>
 </div>
 
 <form class="edit-form" *ngIf="isCreating" (ngSubmit)="submitDeck()">
     <span class="input-span">
-        <label for="deckName" class="label">Deck Name</label>
+        <label for="deckName" class="label" i18n="@@deckName">Deck Name</label>
         <input type="text" id="deckName" [(ngModel)]="deckName" name="deckName" required />
 
     </span>
 
     <span class="deck-data">
-        <p>Cards selected: {{ selectedCards.length }} / 5</p>
-        <p>Total strength: {{ getTotalValue() }} / 30</p>
+        <p i18n="@@cardsSelected">Cards selected: {{ selectedCards.length }} / 5</p>
+        <p i18n="@@totalStrength">Total strength: {{ getTotalValue() }} / 30</p>
     </span>
 
     <div class="cards-section">
-        <h3>Selected cards ({{ selectedCards.length }}/5)</h3>
+        <h3 i18n="@@cardsSelected">Selected cards ({{ selectedCards.length }}/5)</h3>
         <div class="card-grid">
             <div class="card selected" *ngFor="let card of selectedCards">
                 <div class="card-header">
                     <fa-icon [icon]="faSquareMinus" (click)="toggleCardSelection(card)" class="remove-icon"></fa-icon>
                 </div>
                 <p class="underline">{{ card.name }}</p>
-                <p>Strength: {{ card.value }}</p>
+                <p i18n="@@strength">Strength: {{ card.value }}</p>
             </div>
         </div>
 
-        <h3>Available cards</h3>
+        <h3 i18n="@@availableCards">Available cards</h3>
         <div class="card-grid">
             <div class="card" *ngFor="let card of getAvailableCards()" (click)="toggleCardSelection(card)">
                 <p class="underline">{{ card.name }}</p>
-                <p>Strength: {{ card.value }}</p>
+                <p i18n="@@strength">Strength: {{ card.value }}</p>
             </div>
         </div>
     </div>
@@ -66,6 +66,6 @@
         }">
             {{ isEditing ? 'Update Deck' : 'Create Deck' }}
         </button>
-        <button class="warning-btn" type="button" (click)="resetForm()">Cancel</button>
+        <button class="warning-btn" type="button" (click)="resetForm()" i18n="@@cancel">Cancel</button>
     </div>
 </form>

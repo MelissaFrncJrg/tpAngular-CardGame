@@ -56,7 +56,8 @@ p {
 
 .justify {
   width: 100%;
-  justify-content: left !important;
+  display: flex;
+  justify-content: center;
 }
 
 :root {

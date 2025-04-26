@@ -1,23 +1,19 @@
 <!-- Template HTML du carousel -->
-<h2>Cards list</h2>
-
-<div class="justify" *ngIf="!isCreating">
-    <button class="submit-btn" (click)="startCreateCard()">New card</button>
-</div>
+<h2 i18n="@@cardsTitle">Cards list</h2>
 
 <form class="edit-form" *ngIf="isCreating" (ngSubmit)="onSave()">
     <span class="input-span">
-        <label for="name" class="label">Name</label>
+        <label for="name" class="label" i18n="@@name">Name</label>
         <input type="text" id="name" [(ngModel)]="editedCard.name" name="name" required />
     </span>
 
     <span class="input-span">
-        <label for="description" class="label">Description</label>
+        <label for="description" class="label" i18n="@@desc">Description</label>
         <textarea id="description" [(ngModel)]="editedCard.description" name="description" rows="4" required></textarea>
     </span>
 
     <span class="input-span">
-        <label for="value" class="label">Value</label>
+        <label for="value" class="label" i18n="@@value">Value</label>
         <input type="number" id="value" [(ngModel)]="editedCard.value" name="value" min="0" required />
     </span>
 
@@ -26,8 +22,8 @@
     </div>
 
     <div class="action-btns">
-        <button class="submit-btn" type="submit" [disabled]="formInvalid">Save</button>
-        <button type="button" class="warning-btn" (click)="cancelCreate()">Cancel</button>
+        <button class="submit-btn" type="submit" [disabled]="formInvalid" i18n="@@save">Save</button>
+        <button type="button" class="warning-btn" (click)="cancelCreate()" i18n="@@cancel">Cancel</button>
     </div>
 </form>
 
@@ -46,4 +42,7 @@
 
     </div>
 
+    <div class="justify" *ngIf="!isCreating">
+        <button class="submit-btn" (click)="startCreateCard()" i18n="@@newCard">New card</button>
+    </div>
 </div>

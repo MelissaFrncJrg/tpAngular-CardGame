@@ -1,24 +1,24 @@
 <div class="game-container" [ngClass]="gameState">
     <div *ngIf="gameState === 'deck-selection'" class="deck-selection-phase">
-        <h2>Select your deck</h2>
+        <h2 i18n="@@selectDeck">Select your deck</h2>
 
         <div *ngIf="errorMsg" class="error">{{ errorMsg }}</div>
 
         <div class="decks-list">
             <div *ngFor="let deck of decks" class="deck-card" (click)="selectDeck(deck)">
                 <h3>{{ deck.name }}</h3>
-                <p>Cards: {{ deck.cards.length }}</p>
+                <p i18n="@@cards">Cards: {{ deck.cards.length }}</p>
             </div>
         </div>
     </div>
 
     <div *ngIf="gameState === 'playing'" class="playing-phase">
-        <h2>Round {{ currentRound }} / {{ maxRounds }}</h2>
+        <h2 i18n="@@roundCount">Round {{ currentRound }} / {{ maxRounds }}</h2>
 
         <div *ngIf="errorMsg" class="error">{{ errorMsg }}</div>
 
         <div class="deck-selection">
-            <h3>Your deck : {{ playerDeck?.name }}</h3>
+            <h3 i18n="@@playerDeck">Your deck : {{ playerDeck?.name }}</h3>
             <div class="deck">
                 <button *ngFor="let cardId of playerDeck?.cards"
                     [disabled]="isPlayerReady || playerPlayedCards.includes(+cardId)"
@@ -29,7 +29,8 @@
                 </button>
             </div>
             <div class="ready">
-                <button *ngIf="playerSelectedCard && !isPlayerReady" (click)="confirmReadyToPlay()" class="submit-btn">
+                <button *ngIf="playerSelectedCard && !isPlayerReady" (click)="confirmReadyToPlay()" class="submit-btn"
+                    i18n="@@ready">
                     Ready (reveal cards)
                 </button>
             </div>
@@ -55,23 +56,23 @@
         </div>
 
         <div class="score-display">
-            <p>Your score {{ playerScore }} - Opponent score {{ opponentScore }}</p>
+            <p i18n="@@score">Your score {{ playerScore }} - Opponent score {{ opponentScore }}</p>
         </div>
     </div>
 
     <div *ngIf="gameState === 'game-over'" class="game-over-phase">
-        <h2>Partie terminée!</h2>
+        <h2 i18n="@@gameOver">Game over !</h2>
 
         <div class="final-score">
-            <p>Final score : You {{ playerScore }} - Opponent {{ opponentScore }}</p>
+            <p i18n="@@finalScore">Final score : You {{ playerScore }} - Opponent {{ opponentScore }}</p>
 
             <div class="result">
-                <p *ngIf="playerScore > opponentScore" class="win">You win!</p>
-                <p *ngIf="playerScore < opponentScore" class="lose">You loose...</p>
-                <p *ngIf="playerScore === opponentScore" class="draw">Draw!</p>
+                <p *ngIf="playerScore > opponentScore" class="win" i18n="@@win">You win!</p>
+                <p *ngIf="playerScore < opponentScore" class="lose" i18n="@@loose">You loose...</p>
+                <p *ngIf="playerScore === opponentScore" class="draw" i18n="@@draw">Draw!</p>
             </div>
         </div>
 
-        <button (click)="restartGame()" class="submit-btn">New game</button>
+        <button (click)="restartGame()" class="submit-btn" i18n="@@replay">New game</button>
     </div>
 </div>

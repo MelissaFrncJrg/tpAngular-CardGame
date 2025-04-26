@@ -1,11 +1,11 @@
 <section class="auth-container">
     <div class="form-box">
         <div>
-            <h2>Welcome to your card game</h2>
+            <h2 i18n="@@welcome">Welcome to your card game</h2>
         </div>
 
         <form class="form" *ngIf="isLoginView; else registerTemplate">
-            <h3>Please login to your account</h3>
+            <h3 i18n="@@login">Please login to your account</h3>
 
             <span class="input-span">
                 <label for="Email" class="label">Email</label>
@@ -14,7 +14,7 @@
             </span>
 
             <span class="input-span">
-                <label for="Password" class="label">Password</label>
+                <label for="Password" class="label" i18n="@@pwd">Password</label>
                 <div class="password-container">
                     <input [type]="showLoginPassword ? 'text' : 'password'" id="Password" placeholder="Password"
                         [(ngModel)]="userLoginObj.password" name="password" required />
@@ -29,10 +29,10 @@
             </div>
 
             <div class="btn-wrap">
-                <button class="submit-btn" type="button" (click)="loginUser()">Log in</button>
+                <button class="submit-btn" type="button" (click)="loginUser()" i18n="@@login">Log in</button>
             </div>
 
-            <span class="justify">Don't have an account?
+            <span class="justify" i18n="@@noAccount">Don't have an account?
                 <a href="#" (click)="isLoginView = false">Create one</a>
             </span>
         </form>
@@ -40,10 +40,10 @@
         <!-- REGISTER FORM -->
         <ng-template #registerTemplate>
             <form class="form">
-                <h3>Create your account</h3>
+                <h3 i18n="@@createAccount">Create your account</h3>
 
                 <span class="input-span">
-                    <label for="formRegisterName" class="label">Name</label>
+                    <label for="formRegisterName" class="label" i18n="@@name">Name</label>
                     <input type="text" id="formRegisterName" placeholder="Name" [(ngModel)]="userRegisterObj.name"
                         name="name" />
                 </span>
@@ -55,7 +55,7 @@
                 </span>
 
                 <span class="input-span">
-                    <label for="formRegisterPassword" class="label">Password</label>
+                    <label for="formRegisterPassword" class="label" i18n="@@pwd">Password</label>
                     <div class="password-container">
                         <input [type]="showRegisterPassword ? 'text' : 'password'" id="formRegisterPassword"
                             placeholder="Password" [(ngModel)]="userRegisterObj.password" name="password" />
@@ -70,9 +70,11 @@
                 </div>
 
                 <div class="btn-wrap">
-                    <button class="submit-btn" type="button" (click)="registerUser()">Register</button>
+                    <button class="submit-btn" type="button" (click)="registerUser()"
+                        i18n="@@register">Register</button>
                 </div>
-                <a class="justify" href="#" (click)="isLoginView = true; $event.preventDefault()">Back to login</a>
+                <a class="justify" href="#" (click)="isLoginView = true; $event.preventDefault()"
+                    i18n="@@backToLogin">Back to login</a>
             </form>
         </ng-template>
     </div>
