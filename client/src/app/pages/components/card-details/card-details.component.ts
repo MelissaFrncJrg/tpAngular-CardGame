@@ -1,6 +1,6 @@
 import { ActivatedRoute, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { Component, resolveForwardRef } from '@angular/core';
+import { Component } from '@angular/core';
 import { CardModel, CardsService } from '../../../services/cards.services';
 import { DecksService } from '../../../services/decks.service';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -71,7 +71,17 @@ export class CardDetailsComponent {
     this.errorMsg = message;
     setTimeout(() => {
       this.errorMsg = '';
-    }, 50000000);
+    }, 5000);
+  }
+
+  get formInvalid(): boolean {
+    return (
+      !this.editedCard.name?.trim() ||
+      !this.editedCard.description?.trim() ||
+      this.editedCard.value == null ||
+      this.editedCard.value <= 0 ||
+      this.editedCard.value > 20
+    );
   }
 
   editMode = false;
@@ -84,10 +94,7 @@ export class CardDetailsComponent {
   }
 
   onSave(): void {
-    if (!this.editedCard.id) return;
-
-    if (this.editedCard.value > 20) {
-      this.showThenClearError('Card value must not exceed 20');
+    if (this.formInvalid || !this.editedCard.id) {
       return;
     }
 

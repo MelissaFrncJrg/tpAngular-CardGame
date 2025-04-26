@@ -28,11 +28,11 @@
 
         <span class="input-span">
             <label for="value" class="label">Value</label>
-            <input type="number" id="value" [(ngModel)]="editedCard.value" name="value" min="0" required />
+            <input type="number" id="value" [(ngModel)]="editedCard.value" name="value" min="0" max="20" required />
         </span>
 
         <div class="action-btns">
-            <button class="submit-btn" type="submit">Save</button>
+            <button class="submit-btn" type="submit" [disabled]="formInvalid">Save</button>
             <button type="button" class="warning-btn" (click)="editMode = false">Cancel</button>
         </div>
     </form>

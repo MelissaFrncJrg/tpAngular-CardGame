@@ -1,7 +1,7 @@
 <!-- Template HTML du carousel -->
 <h2>Cards list</h2>
 
-<div class="justify">
+<div class="justify" *ngIf="!isCreating">
     <button class="submit-btn" (click)="startCreateCard()">New card</button>
 </div>
 
@@ -26,7 +26,7 @@
     </div>
 
     <div class="action-btns">
-        <button class="submit-btn" type="submit">Save</button>
+        <button class="submit-btn" type="submit" [disabled]="formInvalid">Save</button>
         <button type="button" class="warning-btn" (click)="cancelCreate()">Cancel</button>
     </div>
 </form>

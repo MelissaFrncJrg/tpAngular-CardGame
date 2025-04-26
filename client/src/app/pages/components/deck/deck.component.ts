@@ -150,7 +150,7 @@ export class DeckComponent implements OnInit {
     this.decksService.createDeck(newDeck).subscribe({
       next: (createdDeck) => {
         this.decks.push(createdDeck);
-        this.successMsg = `Deck "${createdDeck.name}" created successfully!`;
+        this.successMsg = `Deck ${createdDeck.name} created successfully!`;
         this.resetAndScroll();
       },
       error: () => {
@@ -173,7 +173,7 @@ export class DeckComponent implements OnInit {
       next: (updatedDeck) => {
         this.replaceDeck(updatedDeck);
 
-        this.successMsg = `Deck "${updatedDeck.name}" updated!`;
+        this.successMsg = `Deck ${updatedDeck.name} updated!`;
         (this.errorMsg = ''), this.resetAndScroll();
       },
       error: () => {

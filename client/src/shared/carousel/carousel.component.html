@@ -3,6 +3,10 @@
         <p>Loading...</p>
     </div>
 
+    <div *ngIf="!isLoading && items.length === 0" class="empty">
+        <p>No items have been created yet</p>
+    </div>
+
     <div *ngIf="!isLoading" class="carousel-button-container">
         <fa-icon class="carousel-button prev" (click)="prevSlide()" [icon]="faChevronLeft"></fa-icon>
 

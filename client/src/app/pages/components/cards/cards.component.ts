@@ -49,11 +49,19 @@ export class CardsComponent implements OnInit {
     this.isCreating = true;
   }
 
-  onSave(): void {
-    if (!this.editedCard.name || this.editedCard.value == null) return;
+  get formInvalid(): boolean {
+    return (
+      !this.editedCard.name?.trim() ||
+      !this.editedCard.description?.trim() ||
+      this.editedCard.value == null ||
+      this.editedCard.value <= 0 ||
+      this.editedCard.value > 20
+    );
+  }
 
-    if (this.editedCard.value > 20) {
-      this.showThenClearError('Card value must not exceed 20!');
+  onSave(): void {
+    if (this.formInvalid) {
+      this.showThenClearError('Please complete all required fields.');
       return;
     }
 
