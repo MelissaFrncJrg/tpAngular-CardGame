@@ -15,11 +15,14 @@
 
             <span class="input-span">
                 <label for="Password" class="label">Password</label>
-                <input type="password" id="Password" placeholder="Password" [(ngModel)]="userLoginObj.password"
-                    name="password" required />
+                <div class="password-container">
+                    <input [type]="showLoginPassword ? 'text' : 'password'" id="Password" placeholder="Password"
+                        [(ngModel)]="userLoginObj.password" name="password" required />
+                    <button type="button" class="eye-btn" (click)="toggleLoginPassword()">
+                        <fa-icon [icon]="showLoginPassword ? faEyeSlash : faEye"></fa-icon>
+                    </button>
+                </div>
             </span>
-
-            <span><a href="#">Forgot password?</a></span>
 
             <div *ngIf="errorMsg" class="alert error">
                 {{ errorMsg }}
@@ -53,8 +56,13 @@
 
                 <span class="input-span">
                     <label for="formRegisterPassword" class="label">Password</label>
-                    <input type="password" id="formRegisterPassword" placeholder="Password"
-                        [(ngModel)]="userRegisterObj.password" name="password" />
+                    <div class="password-container">
+                        <input [type]="showRegisterPassword ? 'text' : 'password'" id="formRegisterPassword"
+                            placeholder="Password" [(ngModel)]="userRegisterObj.password" name="password" />
+                        <button type="button" class="eye-btn" (click)="toggleRegisterPassword()">
+                            <fa-icon [icon]="showRegisterPassword ? faEyeSlash : faEye"></fa-icon>
+                        </button>
+                    </div>
                 </span>
 
                 <div *ngIf="errorMsg" class="alert error">

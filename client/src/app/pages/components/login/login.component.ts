@@ -5,10 +5,11 @@ import { AuthService } from '../../../services/auth.service';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { UserService } from '../../../services/user.service';
-
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 @Component({
   selector: 'app-login',
-  imports: [NgIf, FormsModule],
+  imports: [NgIf, FormsModule, FontAwesomeModule],
   templateUrl: './login.component.html',
   styleUrls: [
     './login.component.scss',
@@ -17,6 +18,9 @@ import { UserService } from '../../../services/user.service';
   standalone: true,
 })
 export class LoginComponent {
+  faEye = faEye;
+  faEyeSlash = faEyeSlash;
+
   isLoginView: boolean = false;
 
   errorMsg?: string;
@@ -26,6 +30,9 @@ export class LoginComponent {
     login: '',
     password: '',
   };
+
+  showLoginPassword: boolean = false;
+  showRegisterPassword: boolean = false;
 
   constructor(
     private authService: AuthService,
@@ -64,5 +71,13 @@ export class LoginComponent {
           this.errorMsg = 'Error when trying to log in';
         },
       });
+  }
+
+  toggleLoginPassword(): void {
+    this.showLoginPassword = !this.showLoginPassword;
+  }
+
+  toggleRegisterPassword(): void {
+    this.showRegisterPassword = !this.showRegisterPassword;
   }
 }
