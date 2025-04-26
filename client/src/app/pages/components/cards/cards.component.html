@@ -13,12 +13,12 @@
 
     <span class="input-span">
         <label for="description" class="label">Description</label>
-        <textarea id="description" [(ngModel)]="editedCard.description" name="description" rows="4"></textarea>
+        <textarea id="description" [(ngModel)]="editedCard.description" name="description" rows="4" required></textarea>
     </span>
 
     <span class="input-span">
         <label for="value" class="label">Value</label>
-        <input type="number" id="value" [(ngModel)]="editedCard.value" name="value" required />
+        <input type="number" id="value" [(ngModel)]="editedCard.value" name="value" min="0" required />
     </span>
 
     <div class="error-container">
@@ -33,7 +33,7 @@
 
 
 
-<div *ngIf="!errorMsg&& !isCreating" class="carousel-container">
+<div *ngIf="!errorMsg && !isCreating && cards.length > 0" class="carousel-container">
     <div class="carousel-button-container">
 
         <app-carousel [items]="cards">

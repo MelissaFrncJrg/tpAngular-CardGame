@@ -1,5 +1,5 @@
-import { CommonModule, NgFor, NgIf } from '@angular/common';
-import { Component, HostListener, OnInit } from '@angular/core';
+import { CommonModule, NgIf } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
 import { CardModel, CardsService } from '../../../services/cards.services';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
@@ -26,17 +26,6 @@ export class CardsComponent implements OnInit {
   constructor(private cardsService: CardsService) {}
 
   ngOnInit(): void {
-    this.loadCards();
-  }
-
-  private showThenClearError(message: string): void {
-    this.errorMsg = message;
-    setTimeout(() => {
-      this.errorMsg = '';
-    }, 5000);
-  }
-
-  async loadCards(): Promise<void> {
     this.cardsService.getAllCards().subscribe({
       next: (data) => {
         this.cards = data;
@@ -46,6 +35,13 @@ export class CardsComponent implements OnInit {
         this.showThenClearError('Error loading cards: '), err;
       },
     });
+  }
+
+  private showThenClearError(message: string): void {
+    this.errorMsg = message;
+    setTimeout(() => {
+      this.errorMsg = '';
+    }, 5000);
   }
 
   startCreateCard(): void {

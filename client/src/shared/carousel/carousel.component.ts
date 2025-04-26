@@ -5,6 +5,7 @@ import {
   TemplateRef,
   HostListener,
   OnInit,
+  ChangeDetectorRef,
 } from '@angular/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import {
@@ -33,11 +34,16 @@ export class CarouselComponent implements OnInit {
   slideWidth = 200;
   visibleSlides = 3;
 
+  constructor(private cdr: ChangeDetectorRef) {}
+
   ngOnInit(): void {
     this.onResize();
 
     setTimeout(() => {
       this.isLoading = false;
+      setTimeout(() => {
+        this.cdr.detectChanges();
+      }, 100);
     }, 500);
   }
 

@@ -28,12 +28,15 @@ export class DeckComponent implements OnInit {
   faXmark = faXmark;
 
   allCards: CardModel[] = [];
+
   decks: DeckModel[] = [];
   deckName: string = '';
+
   editedDeck: DeckModel = { name: '', cards: [] };
   isCreating: boolean = false;
   isEditing: boolean = false;
   selectedCards: CardModel[] = [];
+
   errorMsg = '';
   successMsg = '';
 
