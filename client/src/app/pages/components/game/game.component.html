@@ -23,7 +23,8 @@
                 <button *ngFor="let cardId of playerDeck?.cards"
                     [disabled]="isPlayerReady || playerPlayedCards.includes(+cardId)"
                     (click)="getCardById(cardId) && selectCard(getCardById(cardId)!)"
-                    [class.played]="playerPlayedCards.includes(+cardId)">
+                    [class.played]="playerPlayedCards.includes(+cardId)"
+                    [class.selected]="playerSelectedCard?.id === cardId">
                     {{ getCardById(cardId)?.name }} {{ getCardById(cardId)?.value }}
                 </button>
             </div>

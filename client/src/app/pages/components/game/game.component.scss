@@ -73,6 +73,10 @@
         background-color: #e5e5e5;
         text-decoration: line-through;
       }
+
+      &.selected {
+        transform: translateY(-8px);
+      }
     }
   }
 
