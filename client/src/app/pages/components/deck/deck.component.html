@@ -1,5 +1,9 @@
 <h2 i18n="@@decksTitle">My Decks</h2>
 
+<div *ngIf="decks.length === 0" class="info" i18n="@@noDeckCreated">
+    No deck created yet.
+</div>
+
 <app-carousel class="decks-carousel" [items]="decks" *ngIf="!isCreating">
     <ng-template let-deck>
         <div class="card">

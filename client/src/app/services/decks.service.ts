@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { CardModel } from './cards.services';
 
 export interface DeckModel {
   id?: string | number;
@@ -34,5 +35,14 @@ export class DecksService {
 
   deleteDeck(id: string | number): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/${id}`);
+  }
+
+  calculateDeckValue(deck: DeckModel, allCards: CardModel[]): number {
+    if (!deck || !deck.cards) return 0;
+
+    return deck.cards.reduce((sum: number, id: string | number) => {
+      const card = allCards.find((card) => String(card.id) === String(id));
+      return sum + (card?.value ?? 0);
+    }, 0);
   }
 }

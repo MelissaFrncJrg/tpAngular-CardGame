@@ -129,20 +129,33 @@
           <context context-type="linenumber">1,3</context>
         </context-group>
       </trans-unit>
+            <trans-unit id="noDeckCreated" datatype="html">
+        <source> No deck created yet.
+</source>
+        <target>Aucun deck créé pour l'instant</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/components/deck/deck.component.html</context>
+          <context context-type="linenumber">4,7</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/components/game/game.component.html</context>
+          <context context-type="linenumber">8,11</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="strength" datatype="html">
         <source>Strength: <x id="INTERPOLATION" equiv-text="{{ getDeckValue(deck) }}"/></source>
         <target>Force: <x id="INTERPOLATION" equiv-text="{{ getDeckValue(deck) }}"/></target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/components/deck/deck.component.html</context>
-          <context context-type="linenumber">9,11</context>
+          <context context-type="linenumber">13,15</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/components/deck/deck.component.html</context>
-          <context context-type="linenumber">44,45</context>
+          <context context-type="linenumber">48,49</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/components/deck/deck.component.html</context>
-          <context context-type="linenumber">52,53</context>
+          <context context-type="linenumber">56,57</context>
         </context-group>
       </trans-unit>
       <trans-unit id="newDeck" datatype="html">
@@ -150,7 +163,7 @@
         <target>Nouveau deck</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/components/deck/deck.component.html</context>
-          <context context-type="linenumber">21,24</context>
+          <context context-type="linenumber">25,28</context>
         </context-group>
       </trans-unit>
       <trans-unit id="deckName" datatype="html">
@@ -158,7 +171,7 @@
         <target>Nom du deck</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/components/deck/deck.component.html</context>
-          <context context-type="linenumber">26,27</context>
+          <context context-type="linenumber">30,31</context>
         </context-group>
       </trans-unit>
       <trans-unit id="cardsSelected" datatype="html">
@@ -166,11 +179,11 @@
         <target>Cartes sélectionnées: <x id="INTERPOLATION" equiv-text="{{ selectedCards.length }}"/> / 5</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/components/deck/deck.component.html</context>
-          <context context-type="linenumber">32,33</context>
+          <context context-type="linenumber">36,37</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/components/deck/deck.component.html</context>
-          <context context-type="linenumber">37,38</context>
+          <context context-type="linenumber">41,42</context>
         </context-group>
       </trans-unit>
       <trans-unit id="totalStrength" datatype="html">
@@ -178,7 +191,7 @@
         <target>Force totale: <x id="INTERPOLATION" equiv-text="{{ getTotalValue() }}"/> / 30</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/components/deck/deck.component.html</context>
-          <context context-type="linenumber">33,35</context>
+          <context context-type="linenumber">37,39</context>
         </context-group>
       </trans-unit>
       <trans-unit id="availableCards" datatype="html">
@@ -198,8 +211,8 @@
         </context-group>
       </trans-unit>
       <trans-unit id="cards" datatype="html">
-        <source>Cards: <x id="INTERPOLATION" equiv-text="{{ deck.cards.length }}"/></source>
-        <target>Cartes:</target>
+        <source>Cards: <x id="INTERPOLATION" equiv-text="{{ deck.cards.length }}"/> - Strength: <x id="INTERPOLATION_1" equiv-text="{{ getDeckValue(deck) }}"/></source>
+        <target>Cartes: <x id="INTERPOLATION" equiv-text="{{ deck.cards.length }}"/> - Force: <x id="INTERPOLATION_1" equiv-text="{{ getDeckValue(deck) }}"/></source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/components/game/game.component.html</context>
           <context context-type="linenumber">10,11</context>

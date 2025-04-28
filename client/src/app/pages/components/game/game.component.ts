@@ -53,6 +53,10 @@ export class GameComponent {
           ...card,
           id: typeof card.id === 'string' ? parseInt(card.id, 10) : card.id,
         }));
+        if (this.playerDeck || this.opponentDeck) {
+          this.playerDeck = { ...this.playerDeck! };
+          this.opponentDeck = { ...this.opponentDeck! };
+        }
       },
       error: () =>
         (this.errorMsg = $localize`:@@failedToLoadCards:Failed to load cards.`),
@@ -78,6 +82,11 @@ export class GameComponent {
         this.errorMsg = $localize`:@@errorLoadingDecks:Error loading decks.`;
       },
     });
+  }
+
+  getDeckValue(deck?: DeckModel): number {
+    if (!deck || !this.cards || this.cards.length === 0) return 0;
+    return this.deckService.calculateDeckValue(deck, this.cards);
   }
 
   selectDeck(deck: DeckModel) {

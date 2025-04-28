@@ -76,7 +76,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/components/deck/deck.component.html</context>
-          <context context-type="linenumber">69,71</context>
+          <context context-type="linenumber">73,75</context>
         </context-group>
       </trans-unit>
       <trans-unit id="update" datatype="html">
@@ -187,58 +187,70 @@
           <context context-type="linenumber">1,3</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="noDeckCreated" datatype="html">
+        <source> No deck created yet.
+</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/components/deck/deck.component.html</context>
+          <context context-type="linenumber">4,7</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/components/game/game.component.html</context>
+          <context context-type="linenumber">8,11</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="strength" datatype="html">
         <source>Strength: <x id="INTERPOLATION" equiv-text="{{ getDeckValue(deck) }}"/></source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/components/deck/deck.component.html</context>
-          <context context-type="linenumber">9,11</context>
+          <context context-type="linenumber">13,15</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/components/deck/deck.component.html</context>
-          <context context-type="linenumber">44,45</context>
+          <context context-type="linenumber">48,49</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/components/deck/deck.component.html</context>
-          <context context-type="linenumber">52,53</context>
+          <context context-type="linenumber">56,57</context>
         </context-group>
       </trans-unit>
       <trans-unit id="newDeck" datatype="html">
         <source>New deck</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/components/deck/deck.component.html</context>
-          <context context-type="linenumber">21,24</context>
+          <context context-type="linenumber">25,28</context>
         </context-group>
       </trans-unit>
       <trans-unit id="deckName" datatype="html">
         <source>Deck Name</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/components/deck/deck.component.html</context>
-          <context context-type="linenumber">26,27</context>
+          <context context-type="linenumber">30,31</context>
         </context-group>
       </trans-unit>
       <trans-unit id="cardsSelected" datatype="html">
         <source>Cards selected: <x id="INTERPOLATION" equiv-text="{{ selectedCards.length }}"/> / 5</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/components/deck/deck.component.html</context>
-          <context context-type="linenumber">32,33</context>
+          <context context-type="linenumber">36,37</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/components/deck/deck.component.html</context>
-          <context context-type="linenumber">37,38</context>
+          <context context-type="linenumber">41,42</context>
         </context-group>
       </trans-unit>
       <trans-unit id="totalStrength" datatype="html">
         <source>Total strength: <x id="INTERPOLATION" equiv-text="{{ getTotalValue() }}"/> / 30</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/components/deck/deck.component.html</context>
-          <context context-type="linenumber">33,35</context>
+          <context context-type="linenumber">37,39</context>
         </context-group>
       </trans-unit>
       <trans-unit id="availableCards" datatype="html">
         <source>Available cards</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/components/deck/deck.component.html</context>
-          <context context-type="linenumber">48,49</context>
+          <context context-type="linenumber">52,53</context>
         </context-group>
       </trans-unit>
       <trans-unit id="errorLoadingDecks" datatype="html">
@@ -249,7 +261,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/components/game/game.component.ts</context>
-          <context context-type="linenumber">78</context>
+          <context context-type="linenumber">82</context>
         </context-group>
       </trans-unit>
       <trans-unit id="deckNameRequired" datatype="html">
@@ -344,108 +356,108 @@
         </context-group>
       </trans-unit>
       <trans-unit id="cardsCount" datatype="html">
-        <source>Cards: <x id="INTERPOLATION" equiv-text="{{ deck.cards.length }}"/></source>
+        <source>Cards: <x id="INTERPOLATION" equiv-text="{{ deck.cards.length }}"/> - Strength: <x id="INTERPOLATION_1" equiv-text="{{ getDeckValue(deck) }}"/></source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/components/game/game.component.html</context>
-          <context context-type="linenumber">10,11</context>
+          <context context-type="linenumber">14,15</context>
         </context-group>
       </trans-unit>
       <trans-unit id="roundCount" datatype="html">
         <source>Round <x id="INTERPOLATION" equiv-text="{{ currentRound }}"/> / <x id="INTERPOLATION_1" equiv-text="{{ maxRounds }}"/></source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/components/game/game.component.html</context>
-          <context context-type="linenumber">16,18</context>
+          <context context-type="linenumber">20,22</context>
         </context-group>
       </trans-unit>
       <trans-unit id="playerDeck" datatype="html">
         <source>Your deck : <x id="INTERPOLATION" equiv-text="{{ playerDeck?.name }}"/></source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/components/game/game.component.html</context>
-          <context context-type="linenumber">21,22</context>
+          <context context-type="linenumber">25,26</context>
         </context-group>
       </trans-unit>
       <trans-unit id="ready" datatype="html">
         <source> Ready (reveal cards) </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/components/game/game.component.html</context>
-          <context context-type="linenumber">34,35</context>
+          <context context-type="linenumber">38,39</context>
         </context-group>
       </trans-unit>
       <trans-unit id="score" datatype="html">
         <source>Your score <x id="INTERPOLATION" equiv-text="{{ playerScore }}"/> - Opponent score <x id="INTERPOLATION_1" equiv-text="{{ opponentScore }}"/></source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/components/game/game.component.html</context>
-          <context context-type="linenumber">59,60</context>
+          <context context-type="linenumber">63,64</context>
         </context-group>
       </trans-unit>
       <trans-unit id="gameOver" datatype="html">
         <source>Game over !</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/components/game/game.component.html</context>
-          <context context-type="linenumber">64,66</context>
+          <context context-type="linenumber">68,70</context>
         </context-group>
       </trans-unit>
       <trans-unit id="finalScore" datatype="html">
         <source>Final score : You <x id="INTERPOLATION" equiv-text="{{ playerScore }}"/> - Opponent <x id="INTERPOLATION_1" equiv-text="{{ opponentScore }}"/></source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/components/game/game.component.html</context>
-          <context context-type="linenumber">67,69</context>
+          <context context-type="linenumber">71,73</context>
         </context-group>
       </trans-unit>
       <trans-unit id="win" datatype="html">
         <source>You win!</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/components/game/game.component.html</context>
-          <context context-type="linenumber">70,71</context>
+          <context context-type="linenumber">74,75</context>
         </context-group>
       </trans-unit>
       <trans-unit id="loose" datatype="html">
         <source>You loose...</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/components/game/game.component.html</context>
-          <context context-type="linenumber">71,72</context>
+          <context context-type="linenumber">75,76</context>
         </context-group>
       </trans-unit>
       <trans-unit id="draw" datatype="html">
         <source>Draw!</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/components/game/game.component.html</context>
-          <context context-type="linenumber">72,73</context>
+          <context context-type="linenumber">76,77</context>
         </context-group>
       </trans-unit>
       <trans-unit id="replay" datatype="html">
         <source>New game</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/components/game/game.component.html</context>
-          <context context-type="linenumber">76,78</context>
+          <context context-type="linenumber">80,82</context>
         </context-group>
       </trans-unit>
       <trans-unit id="failedToLoadCards" datatype="html">
         <source>Failed to load cards.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/components/game/game.component.ts</context>
-          <context context-type="linenumber">58</context>
+          <context context-type="linenumber">62</context>
         </context-group>
       </trans-unit>
       <trans-unit id="noAvailableDecks" datatype="html">
         <source>No available decks for opponent.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/components/game/game.component.ts</context>
-          <context context-type="linenumber">95</context>
+          <context context-type="linenumber">103</context>
         </context-group>
       </trans-unit>
       <trans-unit id="alreadyPlayed" datatype="html">
         <source>You already played this card.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/components/game/game.component.ts</context>
-          <context context-type="linenumber">103</context>
+          <context context-type="linenumber">111</context>
         </context-group>
       </trans-unit>
       <trans-unit id="chooseCardFirst" datatype="html">
         <source>You must choose a card to start the game!</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/components/game/game.component.ts</context>
-          <context context-type="linenumber">113</context>
+          <context context-type="linenumber">121</context>
         </context-group>
       </trans-unit>
       <trans-unit id="cards" datatype="html">
@@ -516,14 +528,14 @@
         <source>Register</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/components/login/login.component.html</context>
-          <context context-type="linenumber">78,79</context>
+          <context context-type="linenumber">79,80</context>
         </context-group>
       </trans-unit>
       <trans-unit id="backToLogin" datatype="html">
         <source>Back to login</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/components/login/login.component.html</context>
-          <context context-type="linenumber">81,83</context>
+          <context context-type="linenumber">82,84</context>
         </context-group>
       </trans-unit>
       <trans-unit id="forbiddenCharsName" datatype="html">
@@ -548,7 +560,7 @@
         </context-group>
       </trans-unit>
       <trans-unit id="invalidEmail" datatype="html">
-        <source>Invalid email format or too long.</source>
+        <source>Invalid email format.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/components/login/login.component.ts</context>
           <context context-type="linenumber">76</context>

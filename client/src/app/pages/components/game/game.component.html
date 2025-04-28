@@ -4,10 +4,15 @@
 
         <div *ngIf="errorMsg" class="error">{{ errorMsg }}</div>
 
+        <div *ngIf="decks.length === 0" class="info" i18n="@@noDeckCreated">
+            No deck created yet.
+        </div>
+
         <div class="decks-list">
             <div *ngFor="let deck of decks" class="deck-card" (click)="selectDeck(deck)">
                 <h3>{{ deck.name }}</h3>
-                <p i18n="@@cardsCount">Cards: {{ deck.cards.length }}</p>
+                <p class="justify" i18n="@@cardsCount">Cards: {{ deck.cards.length }} - Strength: {{ getDeckValue(deck)
+                    }}</p>
             </div>
         </div>
     </div>
