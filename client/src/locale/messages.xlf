@@ -159,11 +159,11 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/components/deck/deck.component.ts</context>
-          <context context-type="linenumber">60</context>
+          <context context-type="linenumber">74</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/components/deck/deck.component.ts</context>
-          <context context-type="linenumber">131</context>
+          <context context-type="linenumber">151</context>
         </context-group>
       </trans-unit>
       <trans-unit id="fillAllFields" datatype="html">
@@ -245,7 +245,7 @@
         <source>Error loading decks.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/components/deck/deck.component.ts</context>
-          <context context-type="linenumber">56</context>
+          <context context-type="linenumber">70</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/components/game/game.component.ts</context>
@@ -256,84 +256,84 @@
         <source>Deck name is required.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/components/deck/deck.component.ts</context>
-          <context context-type="linenumber">74</context>
+          <context context-type="linenumber">90</context>
         </context-group>
       </trans-unit>
       <trans-unit id="deckFiveCards" datatype="html">
         <source>A deck must contain exactly 5 cards.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/components/deck/deck.component.ts</context>
-          <context context-type="linenumber">79</context>
+          <context context-type="linenumber">98</context>
         </context-group>
       </trans-unit>
       <trans-unit id="deckCreated" datatype="html">
         <source>Deck <x id="PH" equiv-text="createdDeck.name"/> created successfully!</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/components/deck/deck.component.ts</context>
-          <context context-type="linenumber">155</context>
+          <context context-type="linenumber">177</context>
         </context-group>
       </trans-unit>
       <trans-unit id="errorCreatingDeck" datatype="html">
         <source>Error creating deck.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/components/deck/deck.component.ts</context>
-          <context context-type="linenumber">159</context>
+          <context context-type="linenumber">184</context>
         </context-group>
       </trans-unit>
       <trans-unit id="invalidDeckData" datatype="html">
         <source>Invalid deck data.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/components/deck/deck.component.ts</context>
-          <context context-type="linenumber">167</context>
+          <context context-type="linenumber">194</context>
         </context-group>
       </trans-unit>
       <trans-unit id="deckUpdated" datatype="html">
         <source>Deck <x id="PH" equiv-text="updatedDeck.name"/> updated!</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/components/deck/deck.component.ts</context>
-          <context context-type="linenumber">178</context>
+          <context context-type="linenumber">207</context>
         </context-group>
       </trans-unit>
       <trans-unit id="errorUpdatingDeck" datatype="html">
         <source>Error updating deck.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/components/deck/deck.component.ts</context>
-          <context context-type="linenumber">182</context>
+          <context context-type="linenumber">214</context>
         </context-group>
       </trans-unit>
       <trans-unit id="deckLimitedCards" datatype="html">
         <source>Decks are limited to 5 cards.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/components/deck/deck.component.ts</context>
-          <context context-type="linenumber">210</context>
+          <context context-type="linenumber">245</context>
         </context-group>
       </trans-unit>
       <trans-unit id="deckMaxTotal" datatype="html">
         <source>Deck total value cannot exceed 30.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/components/deck/deck.component.ts</context>
-          <context context-type="linenumber">214</context>
+          <context context-type="linenumber">252</context>
         </context-group>
       </trans-unit>
       <trans-unit id="deckDeleted" datatype="html">
         <source>Deck deleted successfully.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/components/deck/deck.component.ts</context>
-          <context context-type="linenumber">225</context>
+          <context context-type="linenumber">266</context>
         </context-group>
       </trans-unit>
       <trans-unit id="errorDeletingDeck" datatype="html">
         <source>Error deleting deck.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/components/deck/deck.component.ts</context>
-          <context context-type="linenumber">228</context>
+          <context context-type="linenumber">272</context>
         </context-group>
       </trans-unit>
       <trans-unit id="confirmDeleteDeck" datatype="html">
         <source>This action is definitive. Are you sure you want to delete this deck?</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/components/deck/deck.component.ts</context>
-          <context context-type="linenumber">234</context>
+          <context context-type="linenumber">279</context>
         </context-group>
       </trans-unit>
       <trans-unit id="selectDeck" datatype="html">
@@ -495,7 +495,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/components/login/login.component.html</context>
-          <context context-type="linenumber">58,59</context>
+          <context context-type="linenumber">60,61</context>
         </context-group>
       </trans-unit>
       <trans-unit id="noAccount" datatype="html">
@@ -516,28 +516,77 @@
         <source>Register</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/components/login/login.component.html</context>
-          <context context-type="linenumber">74,75</context>
+          <context context-type="linenumber">78,79</context>
         </context-group>
       </trans-unit>
       <trans-unit id="backToLogin" datatype="html">
         <source>Back to login</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/components/login/login.component.html</context>
-          <context context-type="linenumber">77,79</context>
+          <context context-type="linenumber">81,83</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="forbiddenCharsName" datatype="html">
+        <source>Forbidden characters detected in name.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/components/login/login.component.ts</context>
+          <context context-type="linenumber">65</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="invalidName" datatype="html">
+        <source>Name must contain only letters and be under 100 characters.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/components/login/login.component.ts</context>
+          <context context-type="linenumber">68</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="forbiddenCharsLogin" datatype="html">
+        <source>Forbidden characters detected in email.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/components/login/login.component.ts</context>
+          <context context-type="linenumber">73</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="invalidEmail" datatype="html">
+        <source>Invalid email format or too long.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/components/login/login.component.ts</context>
+          <context context-type="linenumber">76</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="forbiddenCharsPassword" datatype="html">
+        <source>Forbidden characters detected in password.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/components/login/login.component.ts</context>
+          <context context-type="linenumber">81</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="passwordLengthError" datatype="html">
+        <source>Password must be between 8 and 20 characters long.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/components/login/login.component.ts</context>
+          <context context-type="linenumber">84</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="invalidPassword" datatype="html">
+        <source>Password must contain one uppercase letter, one lowercase letter, and one number.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/components/login/login.component.ts</context>
+          <context context-type="linenumber">87</context>
         </context-group>
       </trans-unit>
       <trans-unit id="createUserError" datatype="html">
         <source>Error when trying to create user</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/components/login/login.component.ts</context>
-          <context context-type="linenumber">52</context>
+          <context context-type="linenumber">101</context>
         </context-group>
       </trans-unit>
       <trans-unit id="loginError" datatype="html">
         <source>Error when trying to log in</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/components/login/login.component.ts</context>
-          <context context-type="linenumber">72</context>
+          <context context-type="linenumber">121</context>
         </context-group>
       </trans-unit>
       <trans-unit id="load" datatype="html">

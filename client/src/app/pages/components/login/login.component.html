@@ -46,23 +46,28 @@
                     <label for="formRegisterName" class="label" i18n="@@name">Name</label>
                     <input type="text" id="formRegisterName" placeholder="Name" [(ngModel)]="userRegisterObj.name"
                         name="name" />
+                    <div *ngIf="validationErrors.name" class="alert error">{{ validationErrors.name }}</div>
                 </span>
 
                 <span class="input-span">
                     <label for="formRegisterEmail" class="label">Email</label>
-                    <input type="text" id="formRegisterEmail" placeholder="Email" [(ngModel)]="userRegisterObj.login"
-                        name="login" />
+                    <input type="email" id="formRegisterEmail" placeholder="Email" [(ngModel)]="userRegisterObj.login"
+                        name="login" maxlength="100" required />
+                    <div *ngIf="validationErrors.login" class="alert error">{{ validationErrors.login }}</div>
                 </span>
 
                 <span class="input-span">
                     <label for="formRegisterPassword" class="label" i18n="@@pwd">Password</label>
                     <div class="password-container">
                         <input [type]="showRegisterPassword ? 'text' : 'password'" id="formRegisterPassword"
-                            placeholder="Password" [(ngModel)]="userRegisterObj.password" name="password" />
+                            placeholder="Password" [(ngModel)]="userRegisterObj.password" name="password" maxlength="20"
+                            required />
                         <button type="button" class="eye-btn" (click)="toggleRegisterPassword()">
                             <fa-icon [icon]="showRegisterPassword ? faEyeSlash : faEye"></fa-icon>
                         </button>
                     </div>
+                    <div *ngIf="validationErrors.password" class="alert error">{{ validationErrors.password }}</div>
+
                 </span>
 
                 <div *ngIf="errorMsg" class="alert error">

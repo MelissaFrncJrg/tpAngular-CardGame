@@ -42,7 +42,56 @@ export class LoginComponent {
     private userService: UserService
   ) {}
 
+  validationErrors = {
+    name: '',
+    login: '',
+    password: '',
+  };
+
   registerUser(): void {
+    this.validationErrors = { name: '', login: '', password: '' };
+    this.errorMsg = undefined;
+
+    const nameRegex = /^[A-Za-zÀ-ÖØ-öø-ÿ\s'-]{1,100}$/;
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d@$!%*?&]+$/;
+    const forbiddenCharsRegex = /(\$|\{|\}|\||;)/;
+
+    const { name, login, password } = this.userRegisterObj;
+
+    let hasError = false;
+
+    if (forbiddenCharsRegex.test(name)) {
+      this.validationErrors.name = $localize`:@@forbiddenCharsName:Forbidden characters detected in name.`;
+      hasError = true;
+    } else if (!nameRegex.test(name)) {
+      this.validationErrors.name = $localize`:@@invalidName:Name must contain only letters and be under 100 characters.`;
+      hasError = true;
+    }
+
+    if (forbiddenCharsRegex.test(login)) {
+      this.validationErrors.login = $localize`:@@forbiddenCharsLogin:Forbidden characters detected in email.`;
+      hasError = true;
+    } else if (!emailRegex.test(login) || login.length > 100) {
+      this.validationErrors.login = $localize`:@@invalidEmail:Invalid email format.`;
+      hasError = true;
+    }
+
+    if (forbiddenCharsRegex.test(password)) {
+      this.validationErrors.password = $localize`:@@forbiddenCharsPassword:Forbidden characters detected in password.`;
+      hasError = true;
+    } else if (password.length < 8 || password.length > 20) {
+      this.validationErrors.password = $localize`:@@passwordLengthError:Password must be between 8 and 20 characters long.`;
+      hasError = true;
+    } else if (!passwordRegex.test(password)) {
+      this.validationErrors.password = $localize`:@@invalidPassword:Password must contain one uppercase letter, one lowercase letter, and one number.`;
+      hasError = true;
+    }
+
+    if (hasError) {
+      return;
+    }
+
     this.authService.register(this.userRegisterObj).subscribe({
       next: () => {
         this.isLoginView = true;
