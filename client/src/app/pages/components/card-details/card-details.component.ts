@@ -45,7 +45,7 @@ export class CardDetailsComponent {
           this.card = data;
         },
         error: (err) => {
-          this.errorMsg = 'Error when trying to load this card.';
+          this.errorMsg = $localize`:@@loadCardError:Error when trying to load this card.`;
         },
       });
     }
@@ -104,7 +104,9 @@ export class CardDetailsComponent {
         this.editMode = false;
       },
       error: (err) => {
-        this.showThenClearError('Failed to update the card.');
+        this.showThenClearError(
+          $localize`:@@updateCardError:Failed to update the card.`
+        );
       },
     });
   }
@@ -116,22 +118,30 @@ export class CardDetailsComponent {
       .then((isUsed) => {
         if (isUsed) {
           this.showThenClearError(
-            'You can’t delete a card that is part of a deck.'
+            $localize`:@@deleteCardInDeckError:You can’t delete a card that is part of a deck.`
           );
           return;
         }
 
-        if (confirm('Are you sure you want to delete this card?')) {
+        if (
+          confirm(
+            $localize`:@@confirmDeleteCard:Are you sure you want to delete this card?`
+          )
+        ) {
           this.cardsService.deleteCard(String(this.card?.id)).subscribe({
             next: () => this.router.navigate(['/layout/cards']),
             error: (err) => {
-              this.showThenClearError('Failed to delete the card.');
+              this.showThenClearError(
+                $localize`:@@deleteCardError:Failed to delete the card.`
+              );
             },
           });
         }
       })
       .catch((err) => {
-        this.showThenClearError('Failed to verify decks.');
+        this.showThenClearError(
+          $localize`:@@verifyDecksError:Failed to verify decks.`
+        );
       });
   }
 

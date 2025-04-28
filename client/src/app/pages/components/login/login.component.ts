@@ -7,6 +7,7 @@ import { HttpClient } from '@angular/common/http';
 import { UserService } from '../../../services/user.service';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
+
 @Component({
   selector: 'app-login',
   imports: [NgIf, FormsModule, FontAwesomeModule],
@@ -48,7 +49,7 @@ export class LoginComponent {
         this.errorMsg = undefined;
       },
       error: () => {
-        this.errorMsg = 'Error when trying to create user';
+        this.errorMsg = $localize`:@@createUserError:Error when trying to create user`;
       },
     });
   }
@@ -68,7 +69,7 @@ export class LoginComponent {
           this.router.navigate(['/layout/cards']);
         },
         error: () => {
-          this.errorMsg = 'Error when trying to log in';
+          this.errorMsg = $localize`:@@loginError:Error when trying to log in`;
         },
       });
   }

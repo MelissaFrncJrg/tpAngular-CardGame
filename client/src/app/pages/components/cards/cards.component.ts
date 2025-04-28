@@ -32,7 +32,9 @@ export class CardsComponent implements OnInit {
       },
 
       error: (err) => {
-        this.showThenClearError('Error loading cards: '), err;
+        this.showThenClearError(
+          $localize`:@@errorLoadingCards:Error loading cards.`
+        );
       },
     });
   }
@@ -61,7 +63,9 @@ export class CardsComponent implements OnInit {
 
   onSave(): void {
     if (this.formInvalid) {
-      this.showThenClearError('Please complete all required fields.');
+      this.showThenClearError(
+        $localize`:@@fillAllFields:Please complete all required fields.`
+      );
       return;
     }
 
@@ -71,8 +75,9 @@ export class CardsComponent implements OnInit {
         this.isCreating = false;
       },
       error: (err) => {
-        this.showThenClearError('Error creating card.');
-        console.error('Error creating card:', err);
+        this.showThenClearError(
+          $localize`:@@errorCreatingCard:Error creating card.`
+        );
       },
     });
   }

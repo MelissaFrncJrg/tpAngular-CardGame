@@ -95,6 +95,48 @@
           <context context-type="linenumber">43,46</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="loadCardError" datatype="html">
+        <source>Error when trying to load this card.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/components/card-details/card-details.component.ts</context>
+          <context context-type="linenumber">48</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="updateCardError" datatype="html">
+        <source>Failed to update the card.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/components/card-details/card-details.component.ts</context>
+          <context context-type="linenumber">108</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="deleteCardInDeckError" datatype="html">
+        <source>You can’t delete a card that is part of a deck.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/components/card-details/card-details.component.ts</context>
+          <context context-type="linenumber">121</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="confirmDeleteCard" datatype="html">
+        <source>Are you sure you want to delete this card?</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/components/card-details/card-details.component.ts</context>
+          <context context-type="linenumber">128</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="deleteCardError" datatype="html">
+        <source>Failed to delete the card.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/components/card-details/card-details.component.ts</context>
+          <context context-type="linenumber">135</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="verifyDecksError" datatype="html">
+        <source>Failed to verify decks.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/components/card-details/card-details.component.ts</context>
+          <context context-type="linenumber">143</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="cardsTitle" datatype="html">
         <source>Cards list</source>
         <context-group purpose="location">
@@ -107,6 +149,35 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/components/cards/cards.component.html</context>
           <context context-type="linenumber">46,48</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="errorLoadingCards" datatype="html">
+        <source>Error loading cards.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/components/cards/cards.component.ts</context>
+          <context context-type="linenumber">36</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/components/deck/deck.component.ts</context>
+          <context context-type="linenumber">60</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/components/deck/deck.component.ts</context>
+          <context context-type="linenumber">131</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="fillAllFields" datatype="html">
+        <source>Please complete all required fields.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/components/cards/cards.component.ts</context>
+          <context context-type="linenumber">67</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="errorCreatingCard" datatype="html">
+        <source>Error creating card.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/components/cards/cards.component.ts</context>
+          <context context-type="linenumber">79</context>
         </context-group>
       </trans-unit>
       <trans-unit id="decksTitle" datatype="html">
@@ -170,6 +241,101 @@
           <context context-type="linenumber">48,49</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="errorLoadingDecks" datatype="html">
+        <source>Error loading decks.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/components/deck/deck.component.ts</context>
+          <context context-type="linenumber">56</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/components/game/game.component.ts</context>
+          <context context-type="linenumber">78</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="deckNameRequired" datatype="html">
+        <source>Deck name is required.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/components/deck/deck.component.ts</context>
+          <context context-type="linenumber">74</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="deckFiveCards" datatype="html">
+        <source>A deck must contain exactly 5 cards.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/components/deck/deck.component.ts</context>
+          <context context-type="linenumber">79</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="deckCreated" datatype="html">
+        <source>Deck <x id="PH" equiv-text="createdDeck.name"/> created successfully!</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/components/deck/deck.component.ts</context>
+          <context context-type="linenumber">155</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="errorCreatingDeck" datatype="html">
+        <source>Error creating deck.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/components/deck/deck.component.ts</context>
+          <context context-type="linenumber">159</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="invalidDeckData" datatype="html">
+        <source>Invalid deck data.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/components/deck/deck.component.ts</context>
+          <context context-type="linenumber">167</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="deckUpdated" datatype="html">
+        <source>Deck <x id="PH" equiv-text="updatedDeck.name"/> updated!</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/components/deck/deck.component.ts</context>
+          <context context-type="linenumber">178</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="errorUpdatingDeck" datatype="html">
+        <source>Error updating deck.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/components/deck/deck.component.ts</context>
+          <context context-type="linenumber">182</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="deckLimitedCards" datatype="html">
+        <source>Decks are limited to 5 cards.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/components/deck/deck.component.ts</context>
+          <context context-type="linenumber">210</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="deckMaxTotal" datatype="html">
+        <source>Deck total value cannot exceed 30.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/components/deck/deck.component.ts</context>
+          <context context-type="linenumber">214</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="deckDeleted" datatype="html">
+        <source>Deck deleted successfully.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/components/deck/deck.component.ts</context>
+          <context context-type="linenumber">225</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="errorDeletingDeck" datatype="html">
+        <source>Error deleting deck.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/components/deck/deck.component.ts</context>
+          <context context-type="linenumber">228</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="confirmDeleteDeck" datatype="html">
+        <source>This action is definitive. Are you sure you want to delete this deck?</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/components/deck/deck.component.ts</context>
+          <context context-type="linenumber">234</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="selectDeck" datatype="html">
         <source>Select your deck</source>
         <context-group purpose="location">
@@ -177,15 +343,11 @@
           <context context-type="linenumber">3,5</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="cards" datatype="html">
+      <trans-unit id="cardsCount" datatype="html">
         <source>Cards: <x id="INTERPOLATION" equiv-text="{{ deck.cards.length }}"/></source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/components/game/game.component.html</context>
           <context context-type="linenumber">10,11</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/pages/components/layout/layout.component.html</context>
-          <context context-type="linenumber">3,4</context>
         </context-group>
       </trans-unit>
       <trans-unit id="roundCount" datatype="html">
@@ -258,6 +420,41 @@
           <context context-type="linenumber">76,78</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="failedToLoadCards" datatype="html">
+        <source>Failed to load cards.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/components/game/game.component.ts</context>
+          <context context-type="linenumber">58</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="noAvailableDecks" datatype="html">
+        <source>No available decks for opponent.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/components/game/game.component.ts</context>
+          <context context-type="linenumber">95</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="alreadyPlayed" datatype="html">
+        <source>You already played this card.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/components/game/game.component.ts</context>
+          <context context-type="linenumber">103</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="chooseCardFirst" datatype="html">
+        <source>You must choose a card to start the game!</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/components/game/game.component.ts</context>
+          <context context-type="linenumber">113</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="cards" datatype="html">
+        <source>Cards</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/components/layout/layout.component.html</context>
+          <context context-type="linenumber">3,4</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="decks" datatype="html">
         <source>Decks</source>
         <context-group purpose="location">
@@ -327,6 +524,20 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/components/login/login.component.html</context>
           <context context-type="linenumber">77,79</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="createUserError" datatype="html">
+        <source>Error when trying to create user</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/components/login/login.component.ts</context>
+          <context context-type="linenumber">52</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="loginError" datatype="html">
+        <source>Error when trying to log in</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/components/login/login.component.ts</context>
+          <context context-type="linenumber">72</context>
         </context-group>
       </trans-unit>
       <trans-unit id="load" datatype="html">

@@ -52,10 +52,12 @@ export class DeckComponent implements OnInit {
 
         this.decksService.getAllDecks().subscribe({
           next: (data) => (this.decks = data),
-          error: () => (this.errorMsg = 'Error loading decks'),
+          error: () =>
+            (this.errorMsg = $localize`:@@errorLoadingDecks:Error loading decks.`),
         });
       },
-      error: () => (this.errorMsg = 'Error loading cards'),
+      error: () =>
+        (this.errorMsg = $localize`:@@errorLoadingCards:Error loading cards.`),
     });
   }
 
@@ -69,12 +71,12 @@ export class DeckComponent implements OnInit {
 
   private isDeckValid(): boolean {
     if (!this.deckName.trim()) {
-      this.errorMsg = 'Deck name is required.';
+      this.errorMsg = $localize`:@@deckNameRequired:Deck name is required.`;
       return false;
     }
 
     if (this.selectedCards.length !== 5) {
-      this.errorMsg = 'A deck must contain exactly 5 cards.';
+      this.errorMsg = $localize`:@@deckFiveCards:A deck must contain exactly 5 cards.`;
       return false;
     }
 
@@ -126,7 +128,7 @@ export class DeckComponent implements OnInit {
         }
       },
       error: () => {
-        this.errorMsg = 'Error loading cards.';
+        this.errorMsg = $localize`:@@errorLoadingCards:Error loading cards.`;
       },
     });
   }
@@ -150,11 +152,11 @@ export class DeckComponent implements OnInit {
     this.decksService.createDeck(newDeck).subscribe({
       next: (createdDeck) => {
         this.decks.push(createdDeck);
-        this.successMsg = `Deck ${createdDeck.name} created successfully!`;
+        this.successMsg = $localize`:@@deckCreated:Deck ${createdDeck.name} created successfully!`;
         this.resetAndScroll();
       },
       error: () => {
-        this.errorMsg = 'Error creating deck.';
+        this.errorMsg = $localize`:@@errorCreatingDeck:Error creating deck.`;
         this.successMsg = '';
       },
     });
@@ -162,7 +164,7 @@ export class DeckComponent implements OnInit {
 
   updateDeck(deck: DeckModel): void {
     if (!deck.id || !deck.name.trim()) {
-      this.errorMsg = 'Invalid deck data.';
+      this.errorMsg = $localize`:@@invalidDeckData:Invalid deck data.`;
       return;
     }
 
@@ -173,11 +175,11 @@ export class DeckComponent implements OnInit {
       next: (updatedDeck) => {
         this.replaceDeck(updatedDeck);
 
-        this.successMsg = `Deck ${updatedDeck.name} updated!`;
+        this.successMsg = $localize`:@@deckUpdated:Deck ${updatedDeck.name} updated!`;
         (this.errorMsg = ''), this.resetAndScroll();
       },
       error: () => {
-        this.errorMsg = 'Error updating deck.';
+        this.errorMsg = $localize`:@@errorUpdatingDeck:Error updating deck.`;
       },
     });
   }
@@ -205,11 +207,11 @@ export class DeckComponent implements OnInit {
       this.selectedCards.splice(index, 1);
     } else {
       if (this.selectedCards.length >= 5) {
-        this.errorMsg = 'Decks are limited to 5 cards.';
+        this.errorMsg = $localize`:@@deckLimitedCards:Decks are limited to 5 cards.`;
         return;
       }
       if (this.getTotalValue() + card.value > 30) {
-        this.errorMsg = 'Deck total value cannot exceed 30.';
+        this.errorMsg = $localize`:@@deckMaxTotal:Deck total value cannot exceed 30.`;
         return;
       }
       this.selectedCards.push(card);
@@ -220,17 +222,16 @@ export class DeckComponent implements OnInit {
     this.decksService.deleteDeck(String(deckId)).subscribe({
       next: () => {
         this.decks = this.decks.filter((deck) => deck.id !== deckId);
-        this.successMsg = 'Deck deleted successfully.';
+        this.successMsg = $localize`:@@deckDeleted:Deck deleted successfully.`;
       },
       error: () => {
-        this.errorMsg = 'Error deleting deck.';
+        this.errorMsg = $localize`:@@errorDeletingDeck:Error deleting deck.`;
       },
     });
   }
 
   confirmDelete(deckId: string | number): void {
-    const confirmMsg =
-      'This action is definitive. Are you sure you want to delete this deck?';
+    const confirmMsg = $localize`:@@confirmDeleteDeck:This action is definitive. Are you sure you want to delete this deck?`;
 
     if (confirm(confirmMsg)) {
       this.deleteDeck(deckId);

@@ -7,7 +7,7 @@
         <div class="decks-list">
             <div *ngFor="let deck of decks" class="deck-card" (click)="selectDeck(deck)">
                 <h3>{{ deck.name }}</h3>
-                <p i18n="@@cards">Cards: {{ deck.cards.length }}</p>
+                <p i18n="@@cardsCount">Cards: {{ deck.cards.length }}</p>
             </div>
         </div>
     </div>

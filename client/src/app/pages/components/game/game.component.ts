@@ -54,7 +54,8 @@ export class GameComponent {
           id: typeof card.id === 'string' ? parseInt(card.id, 10) : card.id,
         }));
       },
-      error: () => (this.errorMsg = 'Failed to load cards'),
+      error: () =>
+        (this.errorMsg = $localize`:@@failedToLoadCards:Failed to load cards.`),
     });
   }
 
@@ -74,7 +75,7 @@ export class GameComponent {
         }));
       },
       error: (err) => {
-        this.errorMsg = 'Error loading decks';
+        this.errorMsg = $localize`:@@errorLoadingDecks:Error loading decks.`;
       },
     });
   }
@@ -91,7 +92,7 @@ export class GameComponent {
 
       this.gameState = 'playing';
     } else {
-      this.errorMsg = 'No available decks for opponent';
+      this.errorMsg = $localize`:@@noAvailableDecks:No available decks for opponent.`;
     }
   }
 
@@ -99,7 +100,7 @@ export class GameComponent {
     if (!card || this.gameState !== 'playing' || this.isPlayerReady) return;
 
     if (this.playerPlayedCards.includes(Number(card.id))) {
-      this.errorMsg = 'You already played this card';
+      this.errorMsg = $localize`:@@alreadyPlayed:You already played this card.`;
       return;
     }
 
@@ -109,7 +110,7 @@ export class GameComponent {
 
   confirmReadyToPlay(): void {
     if (!this.playerSelectedCard) {
-      this.errorMsg = 'You must choose a card to start the game!';
+      this.errorMsg = $localize`:@@chooseCardFirst:You must choose a card to start the game!`;
       return;
     }
 
