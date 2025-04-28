@@ -45,6 +45,20 @@ export class DeckComponent implements OnInit {
     private cardsService: CardsService
   ) {}
 
+  private setMessage(type: 'error' | 'success', message: string): void {
+    if (type === 'error') {
+      this.errorMsg = message;
+      this.successMsg = '';
+    } else {
+      this.successMsg = message;
+      this.errorMsg = '';
+    }
+    setTimeout(() => {
+      this.errorMsg = '';
+      this.successMsg = '';
+    }, 5000);
+  }
+
   ngOnInit(): void {
     this.cardsService.getAllCards().subscribe({
       next: (cards) => {
@@ -71,12 +85,18 @@ export class DeckComponent implements OnInit {
 
   private isDeckValid(): boolean {
     if (!this.deckName.trim()) {
-      this.errorMsg = $localize`:@@deckNameRequired:Deck name is required.`;
+      this.setMessage(
+        'error',
+        $localize`:@@deckNameRequired:Deck name is required.`
+      );
       return false;
     }
 
     if (this.selectedCards.length !== 5) {
-      this.errorMsg = $localize`:@@deckFiveCards:A deck must contain exactly 5 cards.`;
+      this.setMessage(
+        'error',
+        $localize`:@@deckFiveCards:A deck must contain exactly 5 cards.`
+      );
       return false;
     }
 
@@ -152,19 +172,27 @@ export class DeckComponent implements OnInit {
     this.decksService.createDeck(newDeck).subscribe({
       next: (createdDeck) => {
         this.decks.push(createdDeck);
-        this.successMsg = $localize`:@@deckCreated:Deck ${createdDeck.name} created successfully!`;
+        this.setMessage(
+          'success',
+          $localize`:@@deckCreated:Deck ${createdDeck.name} created successfully!`
+        );
         this.resetAndScroll();
       },
       error: () => {
-        this.errorMsg = $localize`:@@errorCreatingDeck:Error creating deck.`;
-        this.successMsg = '';
+        this.setMessage(
+          'error',
+          $localize`:@@errorCreatingDeck:Error creating deck.`
+        );
       },
     });
   }
 
   updateDeck(deck: DeckModel): void {
     if (!deck.id || !deck.name.trim()) {
-      this.errorMsg = $localize`:@@invalidDeckData:Invalid deck data.`;
+      this.setMessage(
+        'error',
+        $localize`:@@invalidDeckData:Invalid deck data.`
+      );
       return;
     }
 
@@ -174,12 +202,17 @@ export class DeckComponent implements OnInit {
     this.decksService.updateDeck(deck).subscribe({
       next: (updatedDeck) => {
         this.replaceDeck(updatedDeck);
-
-        this.successMsg = $localize`:@@deckUpdated:Deck ${updatedDeck.name} updated!`;
-        (this.errorMsg = ''), this.resetAndScroll();
+        this.setMessage(
+          'success',
+          $localize`:@@deckUpdated:Deck ${updatedDeck.name} updated!`
+        );
+        this.resetAndScroll();
       },
       error: () => {
-        this.errorMsg = $localize`:@@errorUpdatingDeck:Error updating deck.`;
+        this.setMessage(
+          'error',
+          $localize`:@@errorUpdatingDeck:Error updating deck.`
+        );
       },
     });
   }
@@ -207,11 +240,17 @@ export class DeckComponent implements OnInit {
       this.selectedCards.splice(index, 1);
     } else {
       if (this.selectedCards.length >= 5) {
-        this.errorMsg = $localize`:@@deckLimitedCards:Decks are limited to 5 cards.`;
+        this.setMessage(
+          'error',
+          $localize`:@@deckLimitedCards:Decks are limited to 5 cards.`
+        );
         return;
       }
       if (this.getTotalValue() + card.value > 30) {
-        this.errorMsg = $localize`:@@deckMaxTotal:Deck total value cannot exceed 30.`;
+        this.setMessage(
+          'error',
+          $localize`:@@deckMaxTotal:Deck total value cannot exceed 30.`
+        );
         return;
       }
       this.selectedCards.push(card);
@@ -222,10 +261,16 @@ export class DeckComponent implements OnInit {
     this.decksService.deleteDeck(String(deckId)).subscribe({
       next: () => {
         this.decks = this.decks.filter((deck) => deck.id !== deckId);
-        this.successMsg = $localize`:@@deckDeleted:Deck deleted successfully.`;
+        this.setMessage(
+          'success',
+          $localize`:@@deckDeleted:Deck deleted successfully.`
+        );
       },
       error: () => {
-        this.errorMsg = $localize`:@@errorDeletingDeck:Error deleting deck.`;
+        this.setMessage(
+          'error',
+          $localize`:@@errorDeletingDeck:Error deleting deck.`
+        );
       },
     });
   }
