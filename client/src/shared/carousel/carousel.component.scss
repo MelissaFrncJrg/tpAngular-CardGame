@@ -6,13 +6,6 @@
   overflow: visible;
 }
 
-.single-item-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 250px;
-}
-
 .carousel-loader {
   display: flex;
   justify-content: center;
@@ -43,8 +36,6 @@
 .carousel-track {
   width: 70%;
   overflow: hidden;
-  display: flex;
-  justify-content: center;
 }
 
 .carousel-slides {
