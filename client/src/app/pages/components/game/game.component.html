@@ -20,7 +20,7 @@
     <div *ngIf="gameState === 'playing'" class="playing-phase">
         <h2 i18n="@@roundCount">Round {{ currentRound }} / {{ maxRounds }}</h2>
 
-        <div *ngIf="errorMsg" class="error">{{ errorMsg }}</div>
+        <div *ngIf="errorMsg" class="alert error">{{ errorMsg }}</div>
 
         <div class="deck-selection">
             <h3 i18n="@@playerDeck">Your deck : {{ playerDeck?.name }}</h3>

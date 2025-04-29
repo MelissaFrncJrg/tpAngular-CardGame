@@ -17,7 +17,7 @@
     </span>
 
     <div class="error-container">
-        <div *ngIf="errorMsg" class="text-danger">{{ errorMsg }}</div>
+        <div *ngIf="errorMsg" class="alert error">{{ errorMsg }}</div>
     </div>
 
     <div class="action-btns">
@@ -27,7 +27,7 @@
 </form>
 
 
-<div *ngIf="cards.length === 0 && !isCreating" class="info" i18n="@@noDeckCreated">
+<div *ngIf="cards.length === 0 && !isCreating" class="info" i18n="@@noCardsCreated">
     No cards created yet.
 </div>
 
