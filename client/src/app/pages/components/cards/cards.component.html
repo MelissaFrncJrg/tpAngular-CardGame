@@ -1,4 +1,3 @@
-<!-- Template HTML du carousel -->
 <h2 i18n="@@cardsTitle">Cards list</h2>
 
 <form class="edit-form" *ngIf="isCreating" (ngSubmit)="onSave()">
@@ -28,6 +27,9 @@
 </form>
 
 
+<div *ngIf="cards.length === 0 && !isCreating" class="info" i18n="@@noDeckCreated">
+    No cards created yet.
+</div>
 
 <div *ngIf="!errorMsg && !isCreating && cards.length > 0" class="carousel-container">
     <div class="carousel-button-container">
@@ -41,8 +43,8 @@
         </app-carousel>
 
     </div>
+</div>
 
-    <div class="justify" *ngIf="!isCreating">
-        <button class="submit-btn" (click)="startCreateCard()" i18n="@@newCard">New card</button>
-    </div>
+<div class="justify" *ngIf="!isCreating">
+    <button class="submit-btn" (click)="startCreateCard()" i18n="@@newCard">New card</button>
 </div>

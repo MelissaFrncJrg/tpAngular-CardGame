@@ -1,9 +1,5 @@
 <h2 i18n="@@decksTitle">My Decks</h2>
 
-<div *ngIf="decks.length === 0" class="info" i18n="@@noDeckCreated">
-    No deck created yet.
-</div>
-
 <app-carousel class="decks-carousel" [items]="decks" *ngIf="!isCreating">
     <ng-template let-deck>
         <div class="card">
@@ -25,7 +21,12 @@
     <button class="submit-btn" type="button" (click)="createMode()" i18n="@@newDeck">New deck</button>
 </div>
 
-<form class="edit-form" *ngIf="isCreating" (ngSubmit)="submitDeck()">
+<div *ngIf="isCreating && !hasEnoughCards()" class="info" i18n="@@notEnoughCards">
+    You need at least 5 cards to create a deck
+</div>
+
+<form class="edit-form" *ngIf="isCreating && hasEnoughCards()" (ngSubmit)="submitDeck()">
+
     <span class="input-span">
         <label for="deckName" class="label" i18n="@@deckName">Deck Name</label>
         <input type="text" id="deckName" [(ngModel)]="deckName" name="deckName" required />
@@ -33,7 +34,6 @@
     </span>
 
     <span class="deck-data">
-        <p i18n="@@cardsSelected">Cards selected: {{ selectedCards.length }} / 5</p>
         <p i18n="@@totalStrength">Total strength: {{ getTotalValue() }} / 30</p>
     </span>
 

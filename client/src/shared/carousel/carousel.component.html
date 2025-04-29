@@ -7,7 +7,13 @@
         <p i18n="@@noItems">No items have been created yet</p>
     </div>
 
-    <div *ngIf="!isLoading" class="carousel-button-container">
+    <div *ngIf="!isLoading && items.length === 1" class="single-item-container">
+        <div class="carousel-slide single-item">
+            <ng-container *ngTemplateOutlet="itemTemplate; context: { $implicit: items[0] }"></ng-container>
+        </div>
+    </div>
+
+    <div *ngIf="!isLoading && items.length > 1" class="carousel-button-container">
         <fa-icon class="carousel-button prev" (click)="prevSlide()" [icon]="faChevronLeft"></fa-icon>
 
         <div class="carousel-track">
@@ -23,7 +29,7 @@
 
     </div>
 
-    <div class="carousel-dots">
+    <div *ngIf="items.length > 1" class="carousel-dots">
         <span *ngFor="let dot of getDotArray(); let i = index" class="dot" [class.active]="i === currentIndex"
             (click)="goToSlide(i)"></span>
     </div>

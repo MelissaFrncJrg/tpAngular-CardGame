@@ -3,7 +3,14 @@
   width: 50%;
   margin: 0 auto;
   padding: 20px 0;
-  overflow: hidden;
+  overflow: visible;
+}
+
+.single-item-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 250px;
 }
 
 .carousel-loader {
@@ -36,6 +43,8 @@
 .carousel-track {
   width: 70%;
   overflow: hidden;
+  display: flex;
+  justify-content: center;
 }
 
 .carousel-slides {

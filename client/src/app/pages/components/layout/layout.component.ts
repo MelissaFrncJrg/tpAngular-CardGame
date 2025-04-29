@@ -28,6 +28,7 @@ export class LayoutComponent {
 
   logout(): void {
     this.userService.logout();
+    document.body.classList.remove('dark-theme');
     this.router.navigate(['/login']);
   }
 }

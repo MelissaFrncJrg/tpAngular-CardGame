@@ -22,7 +22,7 @@ export class LoginComponent {
   faEye = faEye;
   faEyeSlash = faEyeSlash;
 
-  isLoginView: boolean = false;
+  isLoginView: boolean = true;
 
   errorMsg?: string;
 

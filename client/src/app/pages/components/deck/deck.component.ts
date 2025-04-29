@@ -282,4 +282,8 @@ export class DeckComponent implements OnInit {
       this.deleteDeck(deckId);
     }
   }
+
+  hasEnoughCards(): boolean {
+    return this.getAvailableCards().length >= 5;
+  }
 }

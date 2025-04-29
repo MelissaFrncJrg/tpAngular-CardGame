@@ -90,6 +90,10 @@ export class CarouselComponent implements OnInit {
   }
 
   getSlideTransform(index: number): string {
+    if (this.items.length === 1) {
+      return 'scale(1.15) translateZ(20px)';
+    }
+
     const distance = Math.abs(index - this.currentIndex);
     if (index === this.currentIndex) {
       return 'scale(1.15) translateZ(20px)';
